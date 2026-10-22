@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Alchemy Works</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Alchemy Works: clothing, home, jewelry and vintage from four California stores in the Arts District, Newport Beach, Yountville and Carmel by the Sea. Shop online or pick up in store.">
@@ -255,6 +255,29 @@ header.scrolled .wordmark{font-size:16px}
 @media (max-width:1180px){.menu-btn{display:inline}
   header.open .bar nav{display:flex;flex-direction:column;gap:14px;grid-column:1/-1;order:3;padding-block:12px 6px;border-top:1px solid var(--rule)}}
 @media (max-width:700px){#shop .sec-head{flex-direction:column;align-items:flex-start}.filters{overflow-x:auto;max-width:100%;padding-bottom:4px}}
+/* mobile */
+@media (max-width:700px){
+  body{font-size:15px}
+  .wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+  .places,.journal,.svc{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:80%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));padding-right:16px}
+  .places>*,.journal>*,.svc>*{scroll-snap-align:start}
+  .places::-webkit-scrollbar,.journal::-webkit-scrollbar,.svc::-webkit-scrollbar{display:none}
+  .goods{gap:24px 8px}
+  .good .n{font-size:13px;margin:0 2px}.good .v,.good .p,.good .av{margin:0 2px}
+  .cats{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+  .cat span{font-size:11px}
+  .storefilter{flex-wrap:nowrap;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+  .storefilter button{padding-block:8px}
+  .lede{font-size:24px}
+  .story{padding-block:56px}
+  .list a{padding-block:16px}
+  .list .t{font-size:28px}
+  .collab .a img,.collab .b img{aspect-ratio:4/5}
+  .rooms{gap:6px}
+  .hx,.bx-prev{display:none}
+  .foot{gap:20px}
+  .ticker .track{padding-block:9px}
+}
 /* footer */
 footer{border-top:1px solid var(--ink);margin-top:0}
 .foot{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding-block:28px 56px}
@@ -271,6 +294,10 @@ footer{border-top:1px solid var(--ink);margin-top:0}
 .ticker .track{display:flex;width:max-content;gap:48px;padding-block:11px;padding-left:20px;white-space:nowrap}
 @media (prefers-reduced-motion:no-preference){.ticker .track{animation:roll 60s linear infinite}}
 @keyframes roll{to{transform:translateX(-50%)}}
+
+:root,:root[data-theme="light"],:root[data-theme="dark"]{
+  --paper:#0E0E0D;--ink:#F2F0EB;--muted:#9A978F;--rule:#2A2926;--night:#000000;--on-night:#F2F0EB;--on-night-muted:#8F8C85;--tile:#1B1A18;color-scheme:dark}
+.status.open,.good .av{color:#7CC79A}
 </style>
 </head>
 <body>
@@ -299,14 +326,14 @@ footer{border-top:1px solid var(--ink);margin-top:0}
     <div class="sec-head"><h2 id="shop-h" class="cap" style="margin:0">New in</h2><nav class="cap filters" aria-label="Categories"><a href="#shop" aria-current="true">All</a><a href="#shop">Clothing</a><a href="#shop">Home</a><a href="#shop">Jewelry</a><a href="#shop">Vintage</a><a class="link" href="#shop">Shop all</a></nav></div>
     <div class="storefilter cap" role="group" aria-label="Shop by store"><span class="muted">In stock at</span><button id="sf-all" data-sf="all" aria-pressed="true">Any store</button><button id="sf-signal" data-sf="signal" aria-pressed="false">Signal</button><button id="sf-harbor" data-sf="harbor" aria-pressed="false">Harbor House</button><button id="sf-yount" data-sf="yount" aria-pressed="false">Yountville</button><button id="sf-sea" data-sf="sea" aria-pressed="false">Sea Shop</button><span class="muted sf-note mono" id="sf-note"></span></div>
     <div class="goods">
-      <a class="good" href="#shop" data-stores="harbor sea"><span class="ph2"><img src="img/p-doen-dress.jpg" alt="Dôen Odessa dress, red snapdragon" loading="lazy"><img class="alt" src="img/p-doen-dress-b.jpg" alt="" loading="lazy"></span><span class="v cap muted">Dôen</span><span class="n">Odessa dress, red snapdragon</span><span class="p mono muted">$598</span><span class="av">In stock at Harbor House +1</span></a>
-      <a class="good" href="#shop" data-stores="signal harbor yount"><span class="ph2"><img src="img/p-clarev-bag.jpg" alt="Clare V. Pot de Miel, bamboo handle" loading="lazy"><img class="alt" src="img/p-clarev-bag-b.jpg" alt="" loading="lazy"></span><span class="v cap muted">Clare V.</span><span class="n">Pot de Miel, bamboo handle</span><span class="p mono muted">$265</span><span class="av">In stock at Signal +2</span></a>
-      <a class="good" href="#shop" data-stores="harbor"><span class="ph2"><img src="img/p-zofia-ring.jpg" alt="Zofia Day Dolly ring" loading="lazy"><img class="alt" src="img/p-zofia-ring-b.jpg" alt="" loading="lazy"></span><span class="v cap muted">Zofia Day</span><span class="n">Dolly ring</span><span class="p mono muted">$8,500</span><span class="av">In stock at Harbor House</span></a>
-      <a class="good" href="#shop" data-stores="signal yount"><span class="ph2"><img src="img/p-freda-boot.jpg" alt="Freda Salvador Brooke rain boot" loading="lazy"><img class="alt" src="img/p-freda-boot-b.jpg" alt="" loading="lazy"></span><span class="v cap muted">Freda Salvador</span><span class="n">Brooke rain boot</span><span class="p mono muted">$348</span><span class="av">In stock at Signal +1</span></a>
-      <a class="good" href="#shop" data-stores="signal harbor yount sea"><span class="ph2"><img src="img/p-halley-bowl.jpg" alt="Isabel Halley The Bowl" loading="lazy"><img class="alt" src="img/p-halley-bowl-b.jpg" alt="" loading="lazy"></span><span class="v cap muted">Isabel Halley</span><span class="n">The Bowl</span><span class="p mono muted">$65</span><span class="av">In stock at all four stores</span></a>
-      <a class="good" href="#shop" data-stores="sea"><span class="ph2"><img src="img/p-janessa-bag.jpg" alt="Janessa Leone Leoné shoulder bag" loading="lazy"><img class="alt" src="img/p-janessa-bag-b.jpg" alt="" loading="lazy"></span><span class="v cap muted">Janessa Leone</span><span class="n">Leoné shoulder bag</span><span class="p mono muted">$967</span><span class="av">In stock at Sea Shop</span></a>
+      <a class="good" href="#shop" data-stores="harbor sea"><span class="ph2"><img src="img/p-doen-dress-b.jpg" alt="Dôen Odessa dress, red snapdragon" loading="lazy"><img class="alt" src="img/p-doen-dress.jpg" alt="" loading="lazy"></span><span class="v cap muted">Dôen</span><span class="n">Odessa dress, red snapdragon</span><span class="p mono muted">$598</span><span class="av">In stock at Harbor House +1</span></a>
+      <a class="good" href="#shop" data-stores="signal harbor yount"><span class="ph2"><img src="img/p-clarev-bag-b.jpg" alt="Clare V. Pot de Miel, bamboo handle" loading="lazy"><img class="alt" src="img/p-clarev-bag.jpg" alt="" loading="lazy"></span><span class="v cap muted">Clare V.</span><span class="n">Pot de Miel, bamboo handle</span><span class="p mono muted">$265</span><span class="av">In stock at Signal +2</span></a>
+      <a class="good" href="#shop" data-stores="harbor"><span class="ph2"><img src="img/p-zofia-ring-b.jpg" alt="Zofia Day Dolly ring" loading="lazy"><img class="alt" src="img/p-zofia-ring.jpg" alt="" loading="lazy"></span><span class="v cap muted">Zofia Day</span><span class="n">Dolly ring</span><span class="p mono muted">$8,500</span><span class="av">In stock at Harbor House</span></a>
+      <a class="good" href="#shop" data-stores="signal yount"><span class="ph2"><img src="img/p-freda-boot-b.jpg" alt="Freda Salvador Brooke rain boot" loading="lazy"><img class="alt" src="img/p-freda-boot.jpg" alt="" loading="lazy"></span><span class="v cap muted">Freda Salvador</span><span class="n">Brooke rain boot</span><span class="p mono muted">$348</span><span class="av">In stock at Signal +1</span></a>
+      <a class="good" href="#shop" data-stores="signal harbor yount sea"><span class="ph2"><img src="img/p-halley-bowl-b.jpg" alt="Isabel Halley The Bowl" loading="lazy"><img class="alt" src="img/p-halley-bowl.jpg" alt="" loading="lazy"></span><span class="v cap muted">Isabel Halley</span><span class="n">The Bowl</span><span class="p mono muted">$65</span><span class="av">In stock at all four stores</span></a>
+      <a class="good" href="#shop" data-stores="sea"><span class="ph2"><img src="img/p-janessa-bag-b.jpg" alt="Janessa Leone Leoné shoulder bag" loading="lazy"><img class="alt" src="img/p-janessa-bag.jpg" alt="" loading="lazy"></span><span class="v cap muted">Janessa Leone</span><span class="n">Leoné shoulder bag</span><span class="p mono muted">$967</span><span class="av">In stock at Sea Shop</span></a>
       <a class="good" href="#shop" data-stores="signal sea"><span class="ph2"><img src="img/p-lizzie-collar.jpg" alt="Lizzie Fortunato Woven collar, pastel pearl" loading="lazy"></span><span class="v cap muted">Lizzie Fortunato</span><span class="n">Woven collar, pastel pearl</span><span class="p mono muted">$260</span><span class="av">In stock at Signal +1</span></a>
-      <a class="good" href="#shop" data-stores=""><span class="ph2"><img src="img/p-christy-blouse.jpg" alt="Christy Lynn Cleo blouse, wildflower black" loading="lazy"><img class="alt" src="img/p-christy-blouse-b.jpg" alt="" loading="lazy"></span><span class="v cap muted">Christy Lynn</span><span class="n">Cleo blouse, wildflower black</span><span class="p mono muted">$425</span><span class="av off">Online only</span></a>
+      <a class="good" href="#shop" data-stores=""><span class="ph2"><img src="img/p-christy-blouse-b.jpg" alt="Christy Lynn Cleo blouse, wildflower black" loading="lazy"><img class="alt" src="img/p-christy-blouse.jpg" alt="" loading="lazy"></span><span class="v cap muted">Christy Lynn</span><span class="n">Cleo blouse, wildflower black</span><span class="p mono muted">$425</span><span class="av off">Online only</span></a>
     </div>
     <div class="cats">
       <a class="cat" href="#shop"><img src="img/cat-doen.jpg" alt="Dôen knit with a faux fur collar" loading="lazy"><span class="cap">Clothing</span></a>
