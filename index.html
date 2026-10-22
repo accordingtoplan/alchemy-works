@@ -249,6 +249,12 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:8;background:var
 header .bar{transition:padding .25s ease}
 header.scrolled .bar{padding-block:9px}
 header.scrolled .wordmark{font-size:16px}
+.menu-btn{all:unset;cursor:pointer;display:none}
+.menu-btn:focus-visible{outline:1px solid currentColor;outline-offset:3px}
+.filters{white-space:nowrap}
+@media (max-width:1180px){.menu-btn{display:inline}
+  header.open .bar nav{display:flex;flex-direction:column;gap:14px;grid-column:1/-1;order:3;padding-block:12px 6px;border-top:1px solid var(--rule)}}
+@media (max-width:700px){#shop .sec-head{flex-direction:column;align-items:flex-start}.filters{overflow-x:auto;max-width:100%;padding-bottom:4px}}
 /* footer */
 footer{border-top:1px solid var(--ink);margin-top:0}
 .foot{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding-block:28px 56px}
@@ -272,9 +278,9 @@ footer{border-top:1px solid var(--ink);margin-top:0}
 
 <header>
   <div class="wrap bar">
-    <nav class="cap" aria-label="Main"><a href="#shop">New in</a><a href="#shop">Clothing</a><a href="#home">Home</a><a href="#shop">Jewelry</a><a href="#shop">Vintage</a><a href="#brands">Brands</a></nav>
+    <nav class="cap" aria-label="Main" id="main-nav"><a href="#shop">New in</a><a href="#shop">Clothing</a><a href="#home">Home</a><a href="#shop">Jewelry</a><a href="#shop">Vintage</a><a href="#brands">Brands</a></nav>
     <a class="wordmark" href="#top" aria-label="Alchemy Works home">ALCHEMY WORKS</a>
-    <div class="right cap"><a class="hide-s" href="#places">Stores</a><a class="hide-s" href="#journal">Journal</a><a class="hide-s" href="#shop">Search</a><a href="#shop">Bag (0)</a></div>
+    <div class="right cap"><button class="menu-btn cap" id="menu-btn" aria-expanded="false" aria-controls="main-nav">Menu</button><a class="hide-s" href="#places">Stores</a><a class="hide-s" href="#journal">Journal</a><a class="hide-s" href="#shop">Search</a><a href="#shop">Bag (0)</a></div>
   </div>
 </header>
 
@@ -484,7 +490,7 @@ const bxImg=document.getElementById('bx-img'),bxCap=document.getElementById('bx-
 document.querySelectorAll('.bx-list a').forEach(a=>a.addEventListener('mouseenter',()=>{document.querySelectorAll('.bx-list a.on').forEach(x=>x.classList.remove('on'));a.classList.add('on');bxCap.textContent=a.textContent;if(a.dataset.img)bxImg.src=a.dataset.img}));
 function fitMark(){const m=document.querySelector('.big-mark');if(!m)return;m.style.fontSize='100px';const w=m.clientWidth,t=m.scrollWidth;m.style.fontSize=Math.floor(100*w/t*0.98)+'px'}
 fitMark();addEventListener('resize',fitMark);document.fonts&&document.fonts.ready.then(fitMark);
-const hdr=document.querySelector('header');addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>80),{passive:true});
+const hdr=document.querySelector('header');const mb=document.getElementById('menu-btn');mb.addEventListener('click',()=>{const o=hdr.classList.toggle('open');mb.setAttribute('aria-expanded',String(o));mb.textContent=o?'Close':'Menu'});document.querySelectorAll('#main-nav a').forEach(a=>a.addEventListener('click',()=>{hdr.classList.remove('open');mb.setAttribute('aria-expanded','false');mb.textContent='Menu'}));addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>80),{passive:true});
 render();setInterval(render,60000);
 document.getElementById('letter-form').addEventListener('submit',e=>{e.preventDefault();document.getElementById('ok').textContent='Prototype only. Nothing was sent.'});
 </script>
