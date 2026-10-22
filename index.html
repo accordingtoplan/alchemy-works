@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>Alchemy Works Prototype V2</title>
+<title>Alchemy Works</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Alchemy Works: clothing, home, jewelry and vintage from four California stores in the Arts District, Newport Beach, Yountville and Carmel by the Sea. Shop online or pick up in store.">
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "ClothingStore", "name": "Alchemy Works Signal", "address": {"@type": "PostalAddress", "streetAddress": "821 Traction Ave", "addressLocality": "Los Angeles", "addressRegion": "CA", "postalCode": "90013"}, "telephone": "", "url": "https://www.alchemyworks.us/"}, {"@context": "https://schema.org", "@type": "ClothingStore", "name": "Alchemy Works Harbor House", "address": {"@type": "PostalAddress", "streetAddress": "3408 Via Oporto", "addressLocality": "Newport Beach", "addressRegion": "CA", "postalCode": "92663"}, "telephone": "+1-949-438-1183", "url": "https://www.alchemyworks.us/"}, {"@context": "https://schema.org", "@type": "ClothingStore", "name": "Alchemy Works Yountville", "address": {"@type": "PostalAddress", "streetAddress": "6540 Washington St", "addressLocality": "Yountville", "addressRegion": "CA", "postalCode": "94599"}, "telephone": "+1-707-912-7636", "url": "https://www.alchemyworks.us/"}, {"@context": "https://schema.org", "@type": "ClothingStore", "name": "Alchemy Works Sea Shop", "address": {"@type": "PostalAddress", "streetAddress": "Ocean Ave 2SE at Monte Verde", "addressLocality": "Carmel-by-the-Sea", "addressRegion": "CA", "postalCode": "93921"}, "telephone": "+1-831-760-9950", "url": "https://www.alchemyworks.us/"}]</script>
@@ -492,7 +492,7 @@ function fitMark(){const m=document.querySelector('.big-mark');if(!m)return;m.st
 fitMark();addEventListener('resize',fitMark);document.fonts&&document.fonts.ready.then(fitMark);
 const hdr=document.querySelector('header');const mb=document.getElementById('menu-btn');mb.addEventListener('click',()=>{const o=hdr.classList.toggle('open');mb.setAttribute('aria-expanded',String(o));mb.textContent=o?'Close':'Menu'});document.querySelectorAll('#main-nav a').forEach(a=>a.addEventListener('click',()=>{hdr.classList.remove('open');mb.setAttribute('aria-expanded','false');mb.textContent='Menu'}));addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>80),{passive:true});
 render();setInterval(render,60000);
-document.getElementById('letter-form').addEventListener('submit',e=>{e.preventDefault();document.getElementById('ok').textContent='Prototype only. Nothing was sent.'});
+document.getElementById('letter-form').addEventListener('submit',e=>{e.preventDefault();document.getElementById('ok').textContent='Sign-up opens with the new site.'});
 </script>
 
 </body>
