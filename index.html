@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Alchemy Works Prototype V2</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Alchemy Works: clothing, home, jewelry and vintage from four California stores in the Arts District, Newport Beach, Yountville and Carmel by the Sea. Shop online or pick up in store.">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "ClothingStore", "name": "Alchemy Works Signal", "address": {"@type": "PostalAddress", "streetAddress": "821 Traction Ave", "addressLocality": "Los Angeles", "addressRegion": "CA", "postalCode": "90013"}, "telephone": "", "url": "https://www.alchemyworks.us/"}, {"@context": "https://schema.org", "@type": "ClothingStore", "name": "Alchemy Works Harbor House", "address": {"@type": "PostalAddress", "streetAddress": "3408 Via Oporto", "addressLocality": "Newport Beach", "addressRegion": "CA", "postalCode": "92663"}, "telephone": "+1-949-438-1183", "url": "https://www.alchemyworks.us/"}, {"@context": "https://schema.org", "@type": "ClothingStore", "name": "Alchemy Works Yountville", "address": {"@type": "PostalAddress", "streetAddress": "6540 Washington St", "addressLocality": "Yountville", "addressRegion": "CA", "postalCode": "94599"}, "telephone": "+1-707-912-7636", "url": "https://www.alchemyworks.us/"}, {"@context": "https://schema.org", "@type": "ClothingStore", "name": "Alchemy Works Sea Shop", "address": {"@type": "PostalAddress", "streetAddress": "Ocean Ave 2SE at Monte Verde", "addressLocality": "Carmel-by-the-Sea", "addressRegion": "CA", "postalCode": "93921"}, "telephone": "+1-831-760-9950", "url": "https://www.alchemyworks.us/"}]</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Newsreader:opsz,wght@6..72,300;6..72,400&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+/* Layout: A24 index grid and black list bands, ROA full-bleed documentary photos with long narrative paragraphs set large. Sharp edges, text links only, a live ticker at the foot. */
+:root{
+  --paper:#FFFFFF;
+  --ink:#0E0E0D;
+  --muted:#6E6C67;
+  --rule:#E3E1DC;
+  --night:#0E0E0D;      /* black bands */
+  --on-night:#F2F0EB;
+  --on-night-muted:#8F8C85;
+  --pink:#E2AFA3;       /* the Pink House, used once */
+  --tile:#EFEDE8;
+  --display:"Newsreader",Georgia,"Times New Roman",serif;
+  --mark:"Marcellus","Trajan Pro",Optima,Georgia,serif;
+  --ui:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --max:1440px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0E0E0D; --ink:#F2F0EB; --muted:#9A978F; --rule:#2A2926; --night:#000000; --on-night:#F2F0EB; --on-night-muted:#8F8C85; --tile:#1B1A18; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --paper:#0E0E0D; --ink:#F2F0EB; --muted:#9A978F; --rule:#2A2926; --night:#000000; --on-night:#F2F0EB; --on-night-muted:#8F8C85; --tile:#1B1A18; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--ui);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:44px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:1px solid currentColor;outline-offset:4px}
+img{display:block;width:100%;max-width:100%;object-fit:cover;background:var(--tile)}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.cap{font-family:var(--ui);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.mono{font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+.lede{font-family:var(--display);font-weight:300;font-size:clamp(26px,3.1vw,44px);line-height:1.18;letter-spacing:-.01em;max-width:24em;text-wrap:pretty;margin:0}
+h2.big{font-family:var(--display);font-weight:300;font-size:clamp(34px,4.6vw,68px);line-height:1.02;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.link{border-bottom:1px solid currentColor;padding-bottom:2px}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:8;background:var(--paper);border-bottom:1px solid var(--rule)}
+.bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;padding-block:16px}
+.bar nav{display:flex;gap:22px;flex-wrap:wrap}
+.bar .right{justify-self:end;display:flex;gap:22px}
+.wordmark{font-family:var(--mark);font-size:20px;letter-spacing:.16em;white-space:nowrap}
+@media (max-width:1180px){.bar{grid-template-columns:auto 1fr}.bar nav{display:none}.bar .wordmark{order:-1}.bar .right .hide-s{display:none}}
+
+/* hero */
+.hero{position:relative}
+.hero img{height:min(88vh,880px);min-height:420px}
+.dip{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.dip img{height:min(88vh,880px);min-height:360px}
+@media (max-width:640px){.dip img{min-height:300px;height:60vh}}
+.rooms{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:2px;padding-bottom:clamp(56px,8vw,110px)}
+.rooms img{height:100%}
+.rooms .r1{grid-column:1/6;grid-row:1/3;aspect-ratio:4/5}
+.rooms .r2{grid-column:6/9;aspect-ratio:4/5}.rooms .r3{grid-column:9/13;aspect-ratio:4/5}
+.rooms .r4{grid-column:6/9;aspect-ratio:4/5}.rooms .r5{grid-column:9/13;aspect-ratio:4/5}
+.rooms .txt{grid-column:1/13;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,64px);padding-top:clamp(28px,4vw,48px)}
+@media (max-width:860px){.rooms .r1{grid-column:1/13;grid-row:auto}.rooms .r2,.rooms .r4{grid-column:1/7}.rooms .r3,.rooms .r5{grid-column:7/13}.rooms .txt{grid-template-columns:1fr}}
+.hero .meta{position:absolute;left:0;right:0;bottom:0;color:#fff;padding-block:22px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;text-shadow:0 1px 10px rgba(0,0,0,.25)}
+
+/* story */
+.story{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,64px);padding-block:clamp(56px,8vw,120px);align-items:start}
+.story .side{display:grid;gap:12px}
+.story .side img{aspect-ratio:4/5}
+.story .tag{margin-bottom:28px;display:flex;gap:18px}
+@media (max-width:860px){.story{grid-template-columns:1fr}}
+
+/* places index (A24 grid) */
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-block:20px;border-top:1px solid var(--ink)}
+.places{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;padding-bottom:clamp(56px,8vw,110px)}
+.place{display:grid;gap:12px;padding-bottom:8px}
+.place .img{position:relative;overflow:hidden}
+.place img{aspect-ratio:3/4;transition:transform .6s ease}
+.place .no{position:absolute;top:12px;left:12px;color:#fff;mix-blend-mode:difference}
+.place h3{font-family:var(--mark);font-weight:400;font-size:22px;letter-spacing:.12em;text-transform:uppercase;margin:4px 12px 0}
+.place .row{display:flex;justify-content:space-between;gap:12px;margin:0 12px;font-size:14px}
+.status::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:currentColor;margin-right:7px;vertical-align:1px}
+.status.open{color:#2F7A4B}.status.closed{color:var(--muted)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .status.open{color:#7CC79A}}
+:root[data-theme="dark"] .status.open{color:#7CC79A}
+@media (max-width:1000px){.places{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.places{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:no-preference){.place:hover img{transform:scale(1.03)}}
+
+/* black list band (A24 film list) */
+.night{background:var(--night);color:var(--on-night)}
+.night .muted{color:var(--on-night-muted)}
+.night .sec-head{border-top-color:var(--on-night)}
+.list{list-style:none;margin:0;padding:0 0 clamp(56px,8vw,110px)}
+.list li{border-top:1px solid #2a2926}
+.list a{display:grid;grid-template-columns:60px 1fr 220px 140px;gap:16px;align-items:baseline;padding-block:22px}
+.list .t{font-family:var(--display);font-weight:300;font-size:clamp(26px,3.4vw,52px);line-height:1.05;letter-spacing:-.01em}
+.list .peek{display:none}
+@media (hover:hover) and (min-width:900px){
+  .list{position:relative}
+  .list .peek{display:block;position:absolute;right:160px;width:260px;aspect-ratio:4/5;pointer-events:none;opacity:0;transition:opacity .25s ease;transform:translateY(-40%)}
+  .list li:hover .peek{opacity:1}
+  .list li{position:relative}
+}
+.sample{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--on-night-muted);color:var(--on-night-muted);padding:1px 6px;margin-left:8px;vertical-align:4px}
+@media (max-width:760px){.list a{grid-template-columns:40px 1fr}.list .w,.list .d{grid-column:2}}
+
+/* collaboration */
+.collab{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:2px;padding-bottom:clamp(56px,8vw,110px)}
+.collab .a{grid-column:1/8}.collab .b{grid-column:8/13}
+.collab .a img{aspect-ratio:4/5;height:100%}.collab .b img{aspect-ratio:3/4}
+.collab .text{grid-column:1/13;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,64px);padding-top:clamp(32px,4vw,56px)}
+@media (max-width:860px){.collab .a,.collab .b{grid-column:1/13}.collab .text{grid-template-columns:1fr}}
+
+/* shop */
+.goods{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px 2px;margin-bottom:clamp(40px,5vw,72px)}
+.good{display:grid;gap:6px}
+.good img{aspect-ratio:4/5;object-fit:cover;padding:0;background:var(--tile)}
+.good .v{margin:0 12px;font-size:11px}
+.good .n{margin:0 12px;font-size:14px}
+.good .p{margin:0 12px}
+@media (max-width:900px){.goods{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.good{position:relative}
+.filters{display:flex;gap:18px;flex-wrap:wrap}
+.filters [aria-current]{border-bottom:1px solid currentColor}
+.cats{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:12px;padding-bottom:clamp(56px,8vw,110px)}
+.cat{display:grid;gap:10px}
+.cat img{aspect-ratio:1/1;object-fit:cover;filter:grayscale(1);transition:filter .35s ease}
+.cat:hover img,.cat:focus-visible img{filter:none}
+.cat span{font-size:13px;letter-spacing:.08em}
+@media (max-width:900px){.cats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (hover:none){.cat img{filter:none}}
+/* journal */
+.journal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px);padding-bottom:clamp(56px,8vw,110px)}
+.entry{display:grid;gap:14px}
+.entry img{aspect-ratio:4/5}
+.entry h3{font-family:var(--display);font-weight:300;font-size:clamp(22px,2vw,30px);line-height:1.15;margin:0}
+.entry .k{display:flex;justify-content:space-between;gap:12px}
+@media (max-width:860px){.journal{grid-template-columns:1fr}}
+
+/* first shop */
+.first{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,4vw,64px);padding-bottom:clamp(56px,8vw,110px);align-items:center}
+.plan{overflow-x:auto}
+.plan svg{width:100%;min-width:300px;height:auto}
+.plan .w{fill:none;stroke:var(--on-night);stroke-width:1.5}
+.plan .t{fill:none;stroke:var(--on-night-muted);stroke-width:1}
+.plan .lbl{fill:var(--on-night-muted);font:400 11px var(--mono);letter-spacing:.06em}
+.plan .n{fill:var(--on-night);font:400 13px var(--mono)}
+.notes{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:0}
+.notes li{display:grid;grid-template-columns:40px 1fr;gap:12px;padding-block:14px;border-top:1px solid #2a2926}
+.notes b{font-weight:400;font-family:var(--display);font-size:22px;display:block;line-height:1.2}
+@media (max-width:860px){.first{grid-template-columns:1fr}}
+
+.first-photos{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:clamp(40px,6vw,80px)}
+.first-photos figure{margin:0}
+.first-photos img{aspect-ratio:3/2}
+.first-photos .wide{grid-column:1/3}
+.people{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;padding-bottom:28px}
+.people figure{margin:0;display:grid;gap:10px}
+.people img{aspect-ratio:4/5}
+.people figcaption{display:flex;justify-content:space-between;gap:12px;padding:0 12px}
+.quote{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,64px);padding-block:clamp(28px,4vw,48px) clamp(56px,8vw,110px)}
+@media (max-width:860px){.people{grid-template-columns:1fr}.quote{grid-template-columns:1fr}}
+.first-photos figcaption{grid-column:1/3;padding-top:10px;color:var(--on-night-muted)}
+@media (max-width:700px){.first-photos{grid-template-columns:1fr}.first-photos figcaption,.first-photos .wide{grid-column:1}}
+
+/* hero crossfade */
+.xf{position:relative;height:min(86vh,880px);min-height:460px;overflow:hidden;background:var(--tile)}
+.xf-s{position:absolute;inset:0;margin:0;opacity:0;transition:opacity 1.6s ease}
+.xf-s.on{opacity:1;z-index:1}
+.xf-s img{height:100%}
+.xf-cap{position:absolute;left:0;right:0;bottom:0;padding-block:28px 34px;color:#fff;display:grid;gap:12px;justify-items:start;text-shadow:0 1px 14px rgba(0,0,0,.28)}
+.xf-t{font-family:var(--display);font-weight:300;font-size:clamp(44px,7vw,112px);line-height:.98;letter-spacing:-.02em;max-width:12ch;text-wrap:balance}
+.xf-count{position:absolute;right:max(20px,env(safe-area-inset-right,0px));bottom:34px;z-index:2;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.3)}
+.xf-panel{background:#DBA9AC}
+.xf-panel img{position:absolute;right:max(20px,8vw);top:0;width:auto;height:100%;max-width:55%;object-fit:cover}
+.xf-panel .xf-cap{color:#2B1A1B;text-shadow:none}
+.xf-panel ~ .xf-count{}
+@media (max-width:700px){.xf{height:76vh;min-height:420px}.xf-panel img{right:0;max-width:100%;width:100%;opacity:.95}.xf-panel .xf-cap{color:#fff;text-shadow:0 1px 14px rgba(0,0,0,.35)}}
+/* hero index */
+.hx{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);border-bottom:1px solid var(--rule)}
+.hx-img{position:relative;height:min(84vh,860px);min-height:420px;overflow:hidden;background:var(--tile)}
+.hx-img img{position:absolute;inset:0;height:100%;opacity:0;transition:opacity .6s ease}
+.hx-img img.on{opacity:1}
+.hx-count{position:absolute;left:20px;bottom:18px;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.35)}
+.hx-side{display:flex;flex-direction:column;justify-content:space-between;gap:28px;padding:24px max(20px,env(safe-area-inset-right,0px)) 24px 24px}
+.hx-list{list-style:none;margin:0;padding:0}
+.hx-item{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:34px 1fr;gap:4px 10px;width:100%;padding-block:16px;border-top:1px solid var(--rule);color:var(--muted);transition:color .2s ease}
+.hx-item .hx-t{font-family:var(--display);font-weight:300;font-size:clamp(24px,2.3vw,34px);line-height:1.08;letter-spacing:-.01em}
+.hx-item .hx-s{grid-column:2}
+.hx-item[aria-selected="true"],.hx-item:hover{color:var(--ink)}
+.hx-item:focus-visible{outline:1px solid currentColor;outline-offset:2px}
+.hx-edit-h{display:flex;justify-content:space-between;margin-bottom:10px}
+.hx-edit-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px}
+.hx-edit-row a{display:grid;gap:4px;font-size:12px}
+.hx-edit-row img{aspect-ratio:4/5}
+.hx-edit-row .p{color:var(--muted);font-family:var(--mono);font-size:11px}
+@media (max-width:900px){.hx{grid-template-columns:1fr}.hx-img{height:62vh;min-height:340px}.hx-side{padding-left:max(20px,env(safe-area-inset-left,0px))}}
+/* product tiles */
+.good .ph2{position:relative;display:block;overflow:hidden}
+.good .ph2 img{aspect-ratio:4/5;object-fit:cover}
+.good .ph2 .alt{position:absolute;inset:0;height:100%;opacity:0;transition:opacity .35s ease}
+@media (hover:hover){.good:hover .ph2 .alt{opacity:1}}
+.good .av{margin:0 12px;font-size:12px;color:#2F7A4B}
+.good .av::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;margin-right:6px;vertical-align:1px}
+.good .av.off{color:var(--muted)}
+.good[hidden]{display:none}
+.storefilter{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;padding-bottom:18px}
+.storefilter button{all:unset;cursor:pointer;font:inherit;letter-spacing:inherit;padding-bottom:2px;border-bottom:1px solid transparent}
+.storefilter button[aria-pressed="true"]{border-bottom-color:currentColor}
+.storefilter button:focus-visible{outline:1px solid currentColor;outline-offset:3px}
+/* stores */
+.place .seo{color:var(--muted);font-size:13px}
+.place .shopthis{font-size:11px}
+/* services */
+.svc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;padding-bottom:clamp(56px,8vw,110px)}
+.svc>div{background:var(--tile);padding:20px;display:grid;gap:10px;align-content:start}
+.svc h3{font-family:var(--display);font-weight:300;font-size:26px;line-height:1.1;margin:0}
+.svc p{margin:0;max-width:30ch}
+.svc .link{justify-self:start}
+@media (max-width:900px){.svc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.svc{grid-template-columns:1fr}}
+/* brands */
+.bx{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:clamp(20px,3vw,48px);padding-bottom:clamp(56px,8vw,110px);align-items:start}
+.bx-list{list-style:none;margin:0;padding:0;columns:3;column-gap:24px}
+.bx-list li{display:grid;grid-template-columns:22px 1fr;align-items:baseline;break-inside:avoid;padding-block:5px}
+.bx-list a{font-family:var(--display);font-weight:300;font-size:clamp(20px,1.7vw,26px);line-height:1.2}
+.bx-list a:hover,.bx-list a.on{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.bx-prev{margin:0;position:sticky;top:90px;display:grid;gap:10px}
+.bx-prev img{aspect-ratio:4/5}
+@media (max-width:900px){.bx{grid-template-columns:1fr}.bx-list{columns:2}.bx-prev{display:none}}
+/* journal shop row */
+.entry{display:grid;gap:14px}
+.entry-link{display:grid;gap:14px}
+.intext{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--rule);padding-top:12px}
+.intext .thumbs{display:flex;gap:2px}
+.intext .thumbs img{width:52px;height:65px;object-fit:cover}
+/* header shrink */
+header .bar{transition:padding .25s ease}
+header.scrolled .bar{padding-block:9px}
+header.scrolled .wordmark{font-size:16px}
+/* footer */
+footer{border-top:1px solid var(--ink);margin-top:0}
+.foot{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding-block:28px 56px}
+.foot p{margin:6px 0 0;color:var(--muted);font-variant-numeric:tabular-nums}
+.big-mark{font-family:var(--mark);font-size:8vw;letter-spacing:.06em;line-height:1;white-space:nowrap;padding-block:10px 28px;text-align:center}
+.letter{display:flex;gap:0;border:1px solid var(--ink);max-width:460px}
+.letter input{flex:1;min-width:0;border:0;background:transparent;color:var(--ink);padding:12px 14px;font:400 15px var(--ui)}
+.letter button{border:0;border-left:1px solid var(--ink);background:var(--ink);color:var(--paper);padding:0 18px;font:500 12px var(--ui);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+@media (max-width:860px){.foot{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:460px){.foot{grid-template-columns:1fr}}
+
+/* ticker */
+.ticker{position:fixed;left:0;right:0;bottom:0;z-index:9;background:var(--ink);color:var(--paper);overflow:hidden;padding-bottom:env(safe-area-inset-bottom,0px)}
+.ticker .track{display:flex;width:max-content;gap:48px;padding-block:11px;padding-left:20px;white-space:nowrap}
+@media (prefers-reduced-motion:no-preference){.ticker .track{animation:roll 60s linear infinite}}
+@keyframes roll{to{transform:translateX(-50%)}}
+</style>
+</head>
+<body>
+
+
+<header>
+  <div class="wrap bar">
+    <nav class="cap" aria-label="Main"><a href="#shop">New in</a><a href="#shop">Clothing</a><a href="#home">Home</a><a href="#shop">Jewelry</a><a href="#shop">Vintage</a><a href="#brands">Brands</a></nav>
+    <a class="wordmark" href="#top" aria-label="Alchemy Works home">ALCHEMY WORKS</a>
+    <div class="right cap"><a class="hide-s" href="#places">Stores</a><a class="hide-s" href="#journal">Journal</a><a class="hide-s" href="#shop">Search</a><a href="#shop">Bag (0)</a></div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="xf" aria-label="Featured" aria-roledescription="slideshow">
+    <figure class="xf-s on"><img src="img/hero-doen-fw.jpg" alt="A woman in a pale green Dôen dress on a Paris balcony" fetchpriority="high">
+      <figcaption class="wrap xf-cap"><span class="cap">New season</span><span class="xf-t">Fall Winter 26</span><a class="cap link" href="#shop">Shop new arrivals</a></figcaption></figure>
+    <figure class="xf-s xf-panel"><img src="img/hero-seashop.jpg" alt="The pink facade of Sea Shop in Carmel, lettered Alchemy Works Sea Shop, now open" loading="lazy">
+      <figcaption class="wrap xf-cap"><span class="cap">Now open</span><span class="xf-t">Sea Shop, Carmel by the Sea</span><a class="cap link" href="#places">Visit the store</a></figcaption></figure>
+    <figure class="xf-s"><img src="img/hero-surfboards.jpg" alt="A row of surfboards leaning against a wall" loading="lazy">
+      <figcaption class="wrap xf-cap"><span class="cap">Coastal</span><span class="xf-t">Coastal California, collected</span><a class="cap link" href="#shop">Shop coastal</a></figcaption></figure>
+    <span class="xf-count mono" id="xf-count">01 / 03</span>
+  </section>
+
+  <section id="shop" class="wrap" aria-labelledby="shop-h" style="padding-top:clamp(28px,4vw,56px)">
+    <div class="sec-head"><h2 id="shop-h" class="cap" style="margin:0">New in</h2><nav class="cap filters" aria-label="Categories"><a href="#shop" aria-current="true">All</a><a href="#shop">Clothing</a><a href="#shop">Home</a><a href="#shop">Jewelry</a><a href="#shop">Vintage</a><a class="link" href="#shop">Shop all</a></nav></div>
+    <div class="storefilter cap" role="group" aria-label="Shop by store"><span class="muted">In stock at</span><button id="sf-all" data-sf="all" aria-pressed="true">Any store</button><button id="sf-signal" data-sf="signal" aria-pressed="false">Signal</button><button id="sf-harbor" data-sf="harbor" aria-pressed="false">Harbor House</button><button id="sf-yount" data-sf="yount" aria-pressed="false">Yountville</button><button id="sf-sea" data-sf="sea" aria-pressed="false">Sea Shop</button><span class="muted sf-note mono" id="sf-note"></span></div>
+    <div class="goods">
+      <a class="good" href="#shop" data-stores="harbor sea"><span class="ph2"><img src="img/p-doen-dress.jpg" alt="Dôen Odessa dress, red snapdragon" loading="lazy"><img class="alt" src="img/p-doen-dress-b.jpg" alt="" loading="lazy"></span><span class="v cap muted">Dôen</span><span class="n">Odessa dress, red snapdragon</span><span class="p mono muted">$598</span><span class="av">In stock at Harbor House +1</span></a>
+      <a class="good" href="#shop" data-stores="signal harbor yount"><span class="ph2"><img src="img/p-clarev-bag.jpg" alt="Clare V. Pot de Miel, bamboo handle" loading="lazy"><img class="alt" src="img/p-clarev-bag-b.jpg" alt="" loading="lazy"></span><span class="v cap muted">Clare V.</span><span class="n">Pot de Miel, bamboo handle</span><span class="p mono muted">$265</span><span class="av">In stock at Signal +2</span></a>
+      <a class="good" href="#shop" data-stores="harbor"><span class="ph2"><img src="img/p-zofia-ring.jpg" alt="Zofia Day Dolly ring" loading="lazy"><img class="alt" src="img/p-zofia-ring-b.jpg" alt="" loading="lazy"></span><span class="v cap muted">Zofia Day</span><span class="n">Dolly ring</span><span class="p mono muted">$8,500</span><span class="av">In stock at Harbor House</span></a>
+      <a class="good" href="#shop" data-stores="signal yount"><span class="ph2"><img src="img/p-freda-boot.jpg" alt="Freda Salvador Brooke rain boot" loading="lazy"><img class="alt" src="img/p-freda-boot-b.jpg" alt="" loading="lazy"></span><span class="v cap muted">Freda Salvador</span><span class="n">Brooke rain boot</span><span class="p mono muted">$348</span><span class="av">In stock at Signal +1</span></a>
+      <a class="good" href="#shop" data-stores="signal harbor yount sea"><span class="ph2"><img src="img/p-halley-bowl.jpg" alt="Isabel Halley The Bowl" loading="lazy"><img class="alt" src="img/p-halley-bowl-b.jpg" alt="" loading="lazy"></span><span class="v cap muted">Isabel Halley</span><span class="n">The Bowl</span><span class="p mono muted">$65</span><span class="av">In stock at all four stores</span></a>
+      <a class="good" href="#shop" data-stores="sea"><span class="ph2"><img src="img/p-janessa-bag.jpg" alt="Janessa Leone Leoné shoulder bag" loading="lazy"><img class="alt" src="img/p-janessa-bag-b.jpg" alt="" loading="lazy"></span><span class="v cap muted">Janessa Leone</span><span class="n">Leoné shoulder bag</span><span class="p mono muted">$967</span><span class="av">In stock at Sea Shop</span></a>
+      <a class="good" href="#shop" data-stores="signal sea"><span class="ph2"><img src="img/p-lizzie-collar.jpg" alt="Lizzie Fortunato Woven collar, pastel pearl" loading="lazy"></span><span class="v cap muted">Lizzie Fortunato</span><span class="n">Woven collar, pastel pearl</span><span class="p mono muted">$260</span><span class="av">In stock at Signal +1</span></a>
+      <a class="good" href="#shop" data-stores=""><span class="ph2"><img src="img/p-christy-blouse.jpg" alt="Christy Lynn Cleo blouse, wildflower black" loading="lazy"><img class="alt" src="img/p-christy-blouse-b.jpg" alt="" loading="lazy"></span><span class="v cap muted">Christy Lynn</span><span class="n">Cleo blouse, wildflower black</span><span class="p mono muted">$425</span><span class="av off">Online only</span></a>
+    </div>
+    <div class="cats">
+      <a class="cat" href="#shop"><img src="img/cat-doen.jpg" alt="Dôen knit with a faux fur collar" loading="lazy"><span class="cap">Clothing</span></a>
+      <a class="cat" href="#shop"><img src="img/p-freda-boot-b.jpg" alt="Freda Salvador boot" loading="lazy"><span class="cap">Shoes</span></a>
+      <a class="cat" href="#shop"><img src="img/p-janessa-bag-b.jpg" alt="Janessa Leone shoulder bag" loading="lazy"><span class="cap">Bags</span></a>
+      <a class="cat" href="#shop"><img src="img/cat-jewelry.jpg" alt="Rings and chains on a striped tray" loading="lazy"><span class="cap">Jewelry</span></a>
+      <a class="cat" href="#shop"><img src="img/cat-halley-plates.jpg" alt="Isabel Halley painted plates" loading="lazy"><span class="cap">Home</span></a>
+      <a class="cat" href="#shop"><img src="img/cat-apothecary.jpg" alt="Flamingo Estate candle" loading="lazy"><span class="cap">Apothecary</span></a>
+      <a class="cat" href="#shop"><img src="img/event-vintage.jpg" alt="Vintage ceramics and glassware" loading="lazy"><span class="cap">Vintage</span></a>
+      <a class="cat" href="#shop"><img src="img/event-art.jpg" alt="Art hung salon style above a sofa" loading="lazy"><span class="cap">Art</span></a>
+    </div>
+  </section>
+
+  <section id="places" class="wrap" aria-labelledby="places-h">
+    <div class="sec-head"><h2 id="places-h" class="cap" style="margin:0">Stores</h2><span class="mono muted" id="clock">Los Angeles</span></div>
+    <div class="places">
+      <a class="place" href="#shop" data-shop-store="signal" data-open="11-19,11-19,11-19,11-19,11-19,11-19,11-19">
+        <div class="img"><img src="img/place-signal.jpg" alt="White arched facade of the Signal building" loading="lazy"><span class="no mono">01</span></div>
+        <h3>Signal</h3>
+        <div class="row"><span class="seo">Boutique in the Arts District, Los Angeles</span></div>
+        <div class="row"><span class="muted">821 Traction Ave, Arts District</span></div>
+        <div class="row"><span class="status"></span><span class="cap shopthis">Shop this store</span></div>
+        <div class="row" hidden><span></span><span class="mono muted">Since 2013</span></div>
+      </a>
+      <a class="place" href="#shop" data-shop-store="harbor" data-open="10-18,10-18,10-18,10-18,10-19,10-19,10-19">
+        <div class="img"><img src="img/place-harbor.jpg" alt="Inside Harbor House" loading="lazy"><span class="no mono">02</span></div>
+        <h3>Harbor House</h3>
+        <div class="row"><span class="seo">Boutique at Lido Marina Village, Newport Beach</span></div>
+        <div class="row"><span class="muted">3408 Via Oporto, Newport Beach</span></div>
+        <div class="row"><span class="status"></span><span class="cap shopthis">Shop this store</span></div>
+        <div class="row" hidden><span></span><span class="mono muted">Since 2016</span></div>
+      </a>
+      <a class="place" href="#shop" data-shop-store="yount" data-open="10-17,11-17,11-17,11-17,11-17,10-18,10-18">
+        <div class="img"><img src="img/place-yountville.jpg" alt="The white Yountville shop with a black awning" loading="lazy"><span class="no mono">03</span></div>
+        <h3>Yountville</h3>
+        <div class="row"><span class="seo">Boutique in Yountville, Napa Valley</span></div>
+        <div class="row"><span class="muted">6540 Washington St, Napa Valley</span></div>
+        <div class="row"><span class="status"></span><span class="cap shopthis">Shop this store</span></div>
+        <div class="row" hidden><span></span><span class="mono muted">707.912.7636</span></div>
+      </a>
+      <a class="place" href="#shop" data-shop-store="sea" data-open="10-17,10-17,10-17,10-17,10-17,10-17,10-17">
+        <div class="img"><img src="img/place-seashop.jpg" alt="Watercolor of the Pink House in Carmel" loading="lazy"><span class="no mono">04</span></div>
+        <h3>Sea Shop</h3>
+        <div class="row"><span class="seo">Boutique in Carmel by the Sea</span></div>
+        <div class="row"><span class="muted">Ocean Ave at Monte Verde, Carmel</span></div>
+        <div class="row"><span class="status"></span><span class="cap shopthis">Shop this store</span></div>
+        <div class="row" hidden><span></span><span class="mono muted">Now open</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section id="services" class="wrap" aria-labelledby="svc-h">
+    <div class="sec-head"><h2 id="svc-h" class="cap" style="margin:0">Services</h2><span class="sample" style="border-color:var(--muted);color:var(--muted)">Proposed</span></div>
+    <div class="svc">
+      <div><span class="mono muted">01</span><h3>Book an appointment</h3><p class="muted">An hour with a stylist before or after opening, in any of the four stores.</p><a class="cap link" href="#services">Book</a></div>
+      <div><span class="mono muted">02</span><h3>Delivered to your hotel</h3><p class="muted">Order by noon, delivered the same day to hotels in Carmel, Yountville and Newport Beach.</p><a class="cap link" href="#services">How it works</a></div>
+      <div><span class="mono muted">03</span><h3>Pick up in store</h3><p class="muted">Order online and collect in two hours from the store that has it.</p><a class="cap link" href="#shop">Shop in stock</a></div>
+      <div><span class="mono muted">04</span><h3>Gift cards</h3><p class="muted">Digital or printed. Good online and in all four stores.</p><a class="cap link" href="#services">Send one</a></div>
+    </div>
+  </section>
+
+  <section id="whats-on" class="night" aria-labelledby="on-h">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="on-h" class="cap" style="margin:0">What's on</h2><span class="cap muted">This season</span></div>
+      <ul class="list">
+        <li><a href="#whats-on"><span class="mono muted">01</span><span class="t">Dôen in residence</span><span class="w cap">Harbor House</span><span class="d mono muted">Ongoing</span></a><img class="peek" src="img/event-doen.jpg" alt=""></li>
+        <li><a href="#whats-on"><span class="mono muted">02</span><span class="t">The Pink House opens</span><span class="w cap">Sea Shop, Carmel</span><span class="d mono muted">Open daily</span></a><img class="peek" src="img/place-seashop.jpg" alt=""></li>
+        <li><a href="#whats-on"><span class="mono muted">03</span><span class="t">AW/Art, the next show<span class="sample">Sample</span></span><span class="w cap">Signal</span><span class="d mono muted">Dates to come</span></a><img class="peek" src="img/event-art.jpg" alt=""></li>
+        <li><a href="#whats-on"><span class="mono muted">04</span><span class="t">Vintage Lot No. 01<span class="sample">Sample</span></span><span class="w cap">Yountville</span><span class="d mono muted">Harvest weekend</span></a><img class="peek" src="img/event-vintage.jpg" alt=""></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="wrap story" id="story">
+    <div>
+      <div class="tag cap muted"><span>Since 2013</span><span>Arts District · Newport Beach · Yountville · Carmel</span></div>
+      <p class="lede">Alchemy Works opened in November 2013 on Third Street in the Arts District, a few doors from Apolis. A 1959 Fiat Abarth sat on the shop floor, always for sale. The idea was to stock what Raan and Lindsay Parton couldn't find in Los Angeles, and give the lesser known makers a wall. Thirteen years later there are four shops, from Lido Marina Village to a pink cottage on Ocean Avenue.</p>
+      <p style="margin-top:32px"><a class="cap link" href="#story">Read the story</a></p>
+    </div>
+    <figure class="side" style="margin:0">
+      <img src="img/fvf-storefront.jpg" alt="The first shop seen through its glass door, the Fiat and shelving inside" style="object-position:35% 50%">
+      <figcaption class="cap muted">The first shop, 826 E. 3rd St, 2013</figcaption>
+    </figure>
+  </div>
+
+  <section id="collab" class="wrap" aria-labelledby="collab-h" style="padding-top:clamp(56px,8vw,110px)">
+    <div class="sec-head"><h2 id="collab-h" class="cap" style="margin:0">Collaborations</h2><a class="cap link" href="#collab">View all</a></div>
+    <div class="collab">
+      <img class="a" src="img/apolis-poolside.jpg" alt="Two women by a pool with a striped market bag" loading="lazy">
+      <img class="b" src="img/int-arch.jpg" alt="An arched window in a plastered room with a low chair" loading="lazy">
+      <div class="text">
+        <div><h2 class="big">Alchemy Works x Apolis</h2></div>
+        <div style="display:grid;gap:22px;align-content:start">
+          <p class="lede" style="font-size:clamp(20px,1.8vw,26px)">Apolis means global citizen. The jute market bags are made in Bangladesh by women artisans and printed with the name of a place. The brand started a few doors from the first Alchemy Works. A proposed edition carries the names of the four shops.</p>
+          <a class="cap link" href="#collab" style="justify-self:start">Shop the edition</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="home" class="wrap" aria-labelledby="home-h">
+    <div class="sec-head"><h2 id="home-h" class="cap" style="margin:0">At home</h2><a class="cap link" href="#shop">Shop home</a></div>
+    <div class="rooms">
+      <img class="r1" src="img/int-fireplace.jpg" alt="A white plaster room with a stone fireplace and a horse painting" loading="lazy">
+      <img class="r2" src="img/int-breakfast.jpg" alt="Breakfast on a marble table" loading="lazy">
+      <img class="r3" src="img/int-desert-balcony.jpg" alt="A balcony door open to a desert butte at dusk" loading="lazy">
+      <img class="r4" src="img/int-desk-hat.jpg" alt="A wooden desk, a straw hat and a plant against plaster" loading="lazy">
+      <img class="r5" src="img/int-sunroom.jpg" alt="Velvet chairs in a sunroom" loading="lazy">
+      <div class="txt">
+        <h2 class="big">Rooms that come together slowly.</h2>
+        <p class="lede" style="font-size:clamp(20px,1.8vw,26px)">Half of every shop is home. Tina Frey resin, Isabel Halley ceramics, Sandoval and Earl Home, Flamingo Estate on the counter, and vintage found on the road. Chosen the way a house fills up over years, one piece at a time.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="brands" class="wrap" aria-labelledby="brands-h">
+    <div class="sec-head"><h2 id="brands-h" class="cap" style="margin:0">Brands A to Z</h2><span class="mono muted">30 brands</span></div>
+    <div class="bx">
+      <ul class="bx-list"><li><span class="mono muted bl">A</span><a href="#brands">Apiece Apart</a></li><li><span class="bl"></span><a href="#brands" data-img="img/apolis-artsdistrict-bag.jpg">Apolis</a></li><li><span class="mono muted bl">B</span><a href="#brands">Bembien</a></li><li><span class="bl"></span><a href="#brands">Bodha</a></li><li><span class="bl"></span><a href="#brands">Boudov</a></li><li><span class="mono muted bl">C</span><a href="#brands">Cai Dreaming</a></li><li><span class="bl"></span><a href="#brands" data-img="img/p-christy-blouse-b.jpg">Christy Lynn</a></li><li><span class="bl"></span><a href="#brands" data-img="img/p-clarev-bag-b.jpg">Clare V.</a></li><li><span class="bl"></span><a href="#brands">Cleobella</a></li><li><span class="mono muted bl">D</span><a href="#brands" data-img="img/cat-doen.jpg">Dôen</a></li><li><span class="mono muted bl">E</span><a href="#brands">Earl Home</a></li><li><span class="mono muted bl">F</span><a href="#brands">Flamingo Estate</a></li><li><span class="bl"></span><a href="#brands" data-img="img/p-freda-boot-b.jpg">Freda Salvador</a></li><li><span class="mono muted bl">G</span><a href="#brands">Gabriela Artigas</a></li><li><span class="mono muted bl">I</span><a href="#brands" data-img="img/cat-halley-plates.jpg">Isabel Halley</a></li><li><span class="mono muted bl">J</span><a href="#brands" data-img="img/p-janessa-bag-b.jpg">Janessa Leone</a></li><li><span class="mono muted bl">K</span><a href="#brands">Karen Lazar</a></li><li><span class="mono muted bl">L</span><a href="#brands" data-img="img/event-vintage.jpg">La Suite</a></li><li><span class="bl"></span><a href="#brands" data-img="img/p-lizzie-collar.jpg">Lizzie Fortunato</a></li><li><span class="mono muted bl">M</span><a href="#brands">Mikoh</a></li><li><span class="bl"></span><a href="#brands">Mille</a></li><li><span class="bl"></span><a href="#brands" data-img="img/event-vintage.jpg">Mt Modern</a></li><li><span class="mono muted bl">N</span><a href="#brands">Not Monday</a></li><li><span class="mono muted bl">R</span><a href="#brands">Renna</a></li><li><span class="bl"></span><a href="#brands">Riddle Oil</a></li><li><span class="bl"></span><a href="#brands">ROAM</a></li><li><span class="mono muted bl">S</span><a href="#brands">Sandoval</a></li><li><span class="bl"></span><a href="#brands">Sarah Hendler</a></li><li><span class="mono muted bl">T</span><a href="#brands">Tina Frey</a></li><li><span class="mono muted bl">Z</span><a href="#brands" data-img="img/p-zofia-ring-b.jpg">Zofia Day</a></li></ul>
+      <figure class="bx-prev"><img id="bx-img" src="img/cat-doen.jpg" alt="" loading="lazy"><figcaption class="cap muted" id="bx-cap">Dôen</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="journal" class="wrap" aria-labelledby="journal-h">
+    <div class="sec-head"><h2 id="journal-h" class="cap" style="margin:0">Journal</h2><a class="cap link" href="#journal">All entries</a></div>
+    <div class="journal">
+      <article class="entry"><a href="#journal" class="entry-link"><img src="img/fvf-cypress-road.jpg" alt="A coast road through tall trees" loading="lazy"><div class="k cap muted"><span>Guide</span><span class="mono">01</span></div><h3>A day in Carmel, from the Pink House to the point<span class="sample" style="border-color:var(--muted);color:var(--muted)">Sample</span></h3></a><div class="intext"><div class="thumbs"><a href="#shop" title="Isabel Halley, The Bowl"><img src="img/p-halley-bowl.jpg" alt="Isabel Halley The Bowl" loading="lazy"></a><a href="#shop" title="Zofia Day, Dolly ring"><img src="img/p-zofia-ring.jpg" alt="Zofia Day Dolly ring" loading="lazy"></a><a href="#shop" title="Christy Lynn, Cleo blouse, wildflower black"><img src="img/p-christy-blouse.jpg" alt="Christy Lynn Cleo blouse, wildflower black" loading="lazy"></a></div><a class="cap link" href="#shop">Shop 3 pieces</a></div></article>
+      <article class="entry"><a href="#journal" class="entry-link"><img src="img/jc-maker-portrait.jpg" alt="A ceramicist among shelves of her work in a wooden studio" loading="lazy"><div class="k cap muted"><span>Interview</span><span class="mono">02</span></div><h3>Who makes what's on the shelves<span class="sample" style="border-color:var(--muted);color:var(--muted)">Sample</span></h3></a><div class="intext"><div class="thumbs"><a href="#shop" title="Isabel Halley, The Bowl"><img src="img/p-halley-bowl.jpg" alt="Isabel Halley The Bowl" loading="lazy"></a><a href="#shop" title="Clare V., Pot de Miel, bamboo handle"><img src="img/p-clarev-bag.jpg" alt="Clare V. Pot de Miel, bamboo handle" loading="lazy"></a><a href="#shop" title="Lizzie Fortunato, Woven collar, pastel pearl"><img src="img/p-lizzie-collar.jpg" alt="Lizzie Fortunato Woven collar, pastel pearl" loading="lazy"></a></div><a class="cap link" href="#shop">Shop 3 pieces</a></div></article>
+      <article class="entry"><a href="#journal" class="entry-link"><img src="img/napa-harvest-vines.jpg" alt="Hands holding fresh-picked green grapes at harvest" loading="lazy"><div class="k cap muted"><span>Guide</span><span class="mono">03</span></div><h3>Harvest weekend in Yountville<span class="sample" style="border-color:var(--muted);color:var(--muted)">Sample</span></h3></a><div class="intext"><div class="thumbs"><a href="#shop" title="Freda Salvador, Brooke rain boot"><img src="img/p-freda-boot.jpg" alt="Freda Salvador Brooke rain boot" loading="lazy"></a><a href="#shop" title="Janessa Leone, Leoné shoulder bag"><img src="img/p-janessa-bag.jpg" alt="Janessa Leone Leoné shoulder bag" loading="lazy"></a><a href="#shop" title="Dôen, Odessa dress, red snapdragon"><img src="img/p-doen-dress.jpg" alt="Dôen Odessa dress, red snapdragon" loading="lazy"></a></div><a class="cap link" href="#shop">Shop 3 pieces</a></div></article>
+    </div>
+  </section>
+
+  <div class="hero" style="margin-top:0">
+    <img src="img/fvf-wave.jpg" alt="A clean wave breaking along a California beach" loading="lazy" style="height:min(70vh,700px)">
+    <div class="wrap meta cap"><span>Coastal California, collected</span><span>Since 2013</span></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><span class="cap">01 Signal</span><p>821 Traction Ave<br>Los Angeles, CA 90013</p></div>
+      <div><span class="cap">02 Harbor House</span><p>3408 Via Oporto<br>Newport Beach, CA 92663<br>949.438.1183</p></div>
+      <div><span class="cap">03 Yountville</span><p>6540 Washington St<br>Yountville, CA 94599<br>707.912.7636</p></div>
+      <div><span class="cap">04 Sea Shop</span><p>Ocean Ave 2SE at Monte Verde<br>Carmel by the Sea, CA 93921<br>831.760.9950</p></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:end;padding-bottom:20px">
+      <form class="letter" id="letter-form" novalidate><label for="email" class="cap" style="position:absolute;left:-9999px">Email</label><input id="email" type="email" placeholder="Email for the monthly letter" autocomplete="email"><button type="submit">Sign up</button></form>
+      <span class="cap muted" id="ok">store@alchemyworks.us · @alchemyworks</span>
+    </div>
+    <div class="big-mark" aria-hidden="true">ALCHEMY WORKS</div>
+  </div>
+</footer>
+
+<div class="ticker cap" aria-label="Shop status"><div class="track" id="track"></div></div>
+
+<script>
+const tz='America/Los_Angeles';
+function nowPT(){const p=new Intl.DateTimeFormat('en-US',{timeZone:tz,weekday:'short',hour:'numeric',minute:'2-digit',hour12:false}).formatToParts(new Date());const g=t=>p.find(x=>x.type===t).value;const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];return{day:days.indexOf(g('weekday')),h:+g('hour')%24,m:+g('minute')}}
+function fmt(h){const s=h>=12?'pm':'am';const k=h%12||12;return k+s}
+function status(el){const t=nowPT();const [o,c]=el.dataset.open.split(',')[t.day].split('-').map(Number);const now=t.h+t.m/60;const open=now>=o&&now<c;return{open,text:open?'Open until '+fmt(c):'Opens '+fmt(o)}}
+function render(){
+  const t=nowPT();document.getElementById('clock').textContent='Los Angeles '+String(t.h).padStart(2,'0')+':'+String(t.m).padStart(2,'0')+' PT';
+  const items=[];
+  document.querySelectorAll('.place').forEach(p=>{const s=status(p);const el=p.querySelector('.status');el.textContent=s.text;el.className='status '+(s.open?'open':'closed');items.push(p.querySelector('h3').textContent+' · '+s.text)});
+  items.unshift('Free shipping on orders over $100');items.push('Dôen in residence at Harbor House','The Pink House is open in Carmel');
+  if(matchMedia('(max-width:700px)').matches){items.length=0;items.push('Free shipping on orders over $100','Pick up in store at all four locations','Gift cards online and in store')}
+  const seq=items.map(x=>'<span>'+x+'</span>').join('');document.getElementById('track').innerHTML=seq+seq;
+}
+
+const xs=[...document.querySelectorAll('.xf-s')];let xi=0,xp=false;
+function xfGo(i){xs[xi].classList.remove('on');xi=i;xs[xi].classList.add('on');document.getElementById('xf-count').textContent=String(xi+1).padStart(2,'0')+' / '+String(xs.length).padStart(2,'0')}
+const xf=document.querySelector('.xf');xf.addEventListener('mouseenter',()=>xp=true);xf.addEventListener('mouseleave',()=>xp=false);
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(()=>{if(!xp&&!document.hidden)xfGo((xi+1)%xs.length)},7000);
+const sfBtns=[...document.querySelectorAll('.storefilter button')];
+const NAMES={signal:'Signal',harbor:'Harbor House',yount:'Yountville',sea:'Sea Shop'};
+function sfSet(k){sfBtns.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.sf===k)));let n=0;document.querySelectorAll('.good').forEach(g=>{const ok=k==='all'||g.dataset.stores.split(' ').includes(k);g.hidden=!ok;if(ok)n++});document.getElementById('sf-note').textContent=k==='all'?'':n+' pieces, pick up today at '+NAMES[k]}
+sfBtns.forEach(b=>b.addEventListener('click',()=>sfSet(b.dataset.sf)));
+document.querySelectorAll('[data-shop-store]').forEach(a=>a.addEventListener('click',()=>sfSet(a.dataset.shopStore)));
+const bxImg=document.getElementById('bx-img'),bxCap=document.getElementById('bx-cap');
+document.querySelectorAll('.bx-list a').forEach(a=>a.addEventListener('mouseenter',()=>{document.querySelectorAll('.bx-list a.on').forEach(x=>x.classList.remove('on'));a.classList.add('on');bxCap.textContent=a.textContent;if(a.dataset.img)bxImg.src=a.dataset.img}));
+function fitMark(){const m=document.querySelector('.big-mark');if(!m)return;m.style.fontSize='100px';const w=m.clientWidth,t=m.scrollWidth;m.style.fontSize=Math.floor(100*w/t*0.98)+'px'}
+fitMark();addEventListener('resize',fitMark);document.fonts&&document.fonts.ready.then(fitMark);
+const hdr=document.querySelector('header');addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>80),{passive:true});
+render();setInterval(render,60000);
+document.getElementById('letter-form').addEventListener('submit',e=>{e.preventDefault();document.getElementById('ok').textContent='Prototype only. Nothing was sent.'});
+</script>
+
+</body>
+</html>
