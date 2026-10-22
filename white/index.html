@@ -178,6 +178,8 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:8;background:var
 .xf{position:relative;height:min(86vh,880px);min-height:460px;overflow:hidden;background:var(--tile)}
 .xf-s{position:absolute;inset:0;margin:0;opacity:0;transition:opacity 1.6s ease}
 .xf-s.on{opacity:1;z-index:1}
+.xf-cap{transition:opacity .5s ease}
+.xf-s:not(.on) .xf-cap{opacity:0}
 .xf-s img{height:100%}
 .xf-cap{position:absolute;left:0;right:0;bottom:0;padding-block:28px 34px;color:#fff;display:grid;gap:12px;justify-items:start;text-shadow:0 1px 14px rgba(0,0,0,.28)}
 .xf-t{font-family:var(--display);font-weight:300;font-size:clamp(44px,7vw,112px);line-height:.98;letter-spacing:-.02em;max-width:12ch;text-wrap:balance}
