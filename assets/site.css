@@ -357,7 +357,9 @@ details.acc div{padding-bottom:18px;color:var(--muted);max-width:52ch}
 .shopbar{display:grid;gap:14px;padding-bottom:28px;justify-items:center;text-align:center}
 .shopbar .lbl{color:var(--muted)}
 .shopmeta{display:flex;justify-content:space-between;gap:16px;align-items:baseline;padding-bottom:16px;border-bottom:1px solid var(--rule);margin-bottom:28px}
-.shopmeta select{font:500 12px var(--ui);letter-spacing:.06em;text-transform:uppercase;background:transparent;color:var(--ink);border:0;cursor:pointer}
+.shopmeta select,.brand-sel{font:500 12px var(--ui);letter-spacing:.06em;text-transform:uppercase;background:transparent;color:var(--ink);border:0;cursor:pointer}
+[hidden]{display:none!important}
+.brand-sel{max-width:70vw;border-bottom:1px solid var(--rule)!important;padding:4px 0;margin-left:8px}
 .empty{padding:60px 0 120px;text-align:center;color:var(--muted)}
 /* brand, store, story pages */
 .hero-img{height:min(70vh,720px);min-height:360px;overflow:hidden}
