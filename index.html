@@ -335,77 +335,68 @@ section,.story{scroll-margin-top:80px}
 
 <header>
   <div class="wrap bar">
-    <nav class="cap" aria-label="Main" id="main-nav"><a href="#shop">New in</a><a href="#shop">Clothing</a><a href="#home">Home</a><a href="#shop">Jewelry</a><a href="#shop">Vintage</a><a href="#brands">Brands</a></nav>
-    <a class="wordmark" href="#top" aria-label="Alchemy Works home">ALCHEMY WORKS</a>
-    <div class="right cap"><button class="menu-btn cap" id="menu-btn" aria-expanded="false" aria-controls="main-nav">Menu</button><a class="hide-s" href="#places">Stores</a><a class="hide-s" href="#journal">Journal</a><a class="hide-s" href="#shop">Search</a><a href="#shop">Bag (0)</a></div>
+    <nav class="cap" aria-label="Main" id="main-nav"><a href="/shop/">New in</a><a href="/shop/?c=clothing">Clothing</a><a href="/shop/?c=home">Home</a><a href="/shop/?c=jewelry">Jewelry</a><a href="/shop/?c=vintage">Vintage</a><a href="/brands/">Brands</a></nav>
+    <a class="wordmark" href="/" aria-label="Alchemy Works home">ALCHEMY WORKS</a>
+    <div class="right cap"><button class="menu-btn cap" id="menu-btn" aria-expanded="false" aria-controls="main-nav">Menu</button><a class="hide-s" href="/stores/">Stores</a><a class="hide-s" href="/journal/">Journal</a><a class="hide-s" href="/shop/">Search</a><a href="#shop">Bag (0)</a></div>
   </div>
 </header>
 
 <main id="top">
   <section class="xf" aria-label="Featured" aria-roledescription="slideshow">
-    <figure class="xf-s on"><img src="img/hero-surfboards.jpg" alt="A row of surfboards leaning against a wall" fetchpriority="high">
+    <figure class="xf-s on"><img src="/img/hero-surfboards.jpg" alt="A row of surfboards leaning against a wall" fetchpriority="high">
       <figcaption class="wrap xf-cap"><span class="cap">Coastal</span><span class="xf-t">Coastal California, collected</span><a class="cap link" href="#shop">Shop coastal</a></figcaption></figure>
-    <figure class="xf-s"><img src="img/hero-doen-fw.jpg" alt="A woman in a pale green Dôen dress on a Paris balcony" loading="lazy">
+    <figure class="xf-s"><img src="/img/hero-doen-fw.jpg" alt="A woman in a pale green Dôen dress on a Paris balcony" loading="lazy">
       <figcaption class="wrap xf-cap"><span class="cap">New season</span><span class="xf-t">Fall Winter 26</span><a class="cap link" href="#shop">Shop new arrivals</a></figcaption></figure>
-    <figure class="xf-s xf-panel"><img src="img/hero-seashop.jpg" alt="The pink facade of Sea Shop in Carmel, lettered Alchemy Works Sea Shop, now open" loading="lazy">
+    <figure class="xf-s xf-panel"><img src="/img/hero-seashop.jpg" alt="The pink facade of Sea Shop in Carmel, lettered Alchemy Works Sea Shop, now open" loading="lazy">
       <figcaption class="wrap xf-cap"><span class="cap">Now open</span><span class="xf-t">Sea Shop, Carmel by the Sea</span><a class="cap link" href="#places">Visit the store</a></figcaption></figure>
     <span class="xf-count mono" id="xf-count">01 / 03</span>
   </section>
 
   <section id="shop" class="wrap" aria-labelledby="shop-h" style="padding-top:clamp(28px,4vw,56px)">
-    <div class="sec-head"><h2 id="shop-h" class="cap" style="margin:0">New in</h2><nav class="cap filters" aria-label="Categories"><a href="#shop" aria-current="true">All</a><a href="#shop">Clothing</a><a href="#shop">Home</a><a href="#shop">Jewelry</a><a href="#shop">Vintage</a><a class="link" href="#shop">Shop all</a></nav></div>
+    <div class="sec-head"><h2 id="shop-h" class="cap" style="margin:0">New in</h2><nav class="cap filters" aria-label="Categories"><a href="#shop" aria-current="true">All</a><a href="/shop/?c=clothing">Clothing</a><a href="#shop">Home</a><a href="/shop/?c=jewelry">Jewelry</a><a href="/shop/?c=vintage">Vintage</a><a class="link" href="/shop/">Shop all</a></nav></div>
     <div class="storefilter cap" role="group" aria-label="Shop by store"><span class="muted">In stock at</span><button id="sf-all" data-sf="all" aria-pressed="true">Any store</button><button id="sf-signal" data-sf="signal" aria-pressed="false">Signal</button><button id="sf-harbor" data-sf="harbor" aria-pressed="false">Harbor House</button><button id="sf-yount" data-sf="yount" aria-pressed="false">Yountville</button><button id="sf-sea" data-sf="sea" aria-pressed="false">Sea Shop</button><span class="muted sf-note mono" id="sf-note"></span></div>
-    <div class="goods">
-      <a class="good" href="#shop" data-stores="harbor sea"><span class="ph2"><img src="img/p-doen-dress-b.jpg" alt="Dôen Odessa dress, red snapdragon" loading="lazy"><img class="alt" src="img/p-doen-dress.jpg" alt="" loading="lazy"></span><span class="v cap muted">Dôen</span><span class="n">Odessa dress, red snapdragon</span><span class="p mono muted">$598</span><span class="av">In stock at Harbor House +1</span></a>
-      <a class="good" href="#shop" data-stores="signal harbor yount"><span class="ph2"><img src="img/p-clarev-bag-b.jpg" alt="Clare V. Pot de Miel, bamboo handle" loading="lazy"><img class="alt" src="img/p-clarev-bag.jpg" alt="" loading="lazy"></span><span class="v cap muted">Clare V.</span><span class="n">Pot de Miel, bamboo handle</span><span class="p mono muted">$265</span><span class="av">In stock at Signal +2</span></a>
-      <a class="good" href="#shop" data-stores="harbor"><span class="ph2"><img src="img/p-zofia-ring-b.jpg" alt="Zofia Day Dolly ring" loading="lazy"><img class="alt" src="img/p-zofia-ring.jpg" alt="" loading="lazy"></span><span class="v cap muted">Zofia Day</span><span class="n">Dolly ring</span><span class="p mono muted">$8,500</span><span class="av">In stock at Harbor House</span></a>
-      <a class="good" href="#shop" data-stores="signal yount"><span class="ph2"><img src="img/p-freda-boot-b.jpg" alt="Freda Salvador Brooke rain boot" loading="lazy"><img class="alt" src="img/p-freda-boot.jpg" alt="" loading="lazy"></span><span class="v cap muted">Freda Salvador</span><span class="n">Brooke rain boot</span><span class="p mono muted">$348</span><span class="av">In stock at Signal +1</span></a>
-      <a class="good" href="#shop" data-stores="signal harbor yount sea"><span class="ph2"><img src="img/p-halley-bowl-b.jpg" alt="Isabel Halley The Bowl" loading="lazy"><img class="alt" src="img/p-halley-bowl.jpg" alt="" loading="lazy"></span><span class="v cap muted">Isabel Halley</span><span class="n">The Bowl</span><span class="p mono muted">$65</span><span class="av">In stock at all four stores</span></a>
-      <a class="good" href="#shop" data-stores="sea"><span class="ph2"><img src="img/p-janessa-bag-b.jpg" alt="Janessa Leone Leoné shoulder bag" loading="lazy"><img class="alt" src="img/p-janessa-bag.jpg" alt="" loading="lazy"></span><span class="v cap muted">Janessa Leone</span><span class="n">Leoné shoulder bag</span><span class="p mono muted">$967</span><span class="av">In stock at Sea Shop</span></a>
-      <a class="good" href="#shop" data-stores="signal sea"><span class="ph2"><img src="img/p-lizzie-collar.jpg" alt="Lizzie Fortunato Woven collar, pastel pearl" loading="lazy"></span><span class="v cap muted">Lizzie Fortunato</span><span class="n">Woven collar, pastel pearl</span><span class="p mono muted">$260</span><span class="av">In stock at Signal +1</span></a>
-      <a class="good" href="#shop" data-stores=""><span class="ph2"><img src="img/p-christy-blouse-b.jpg" alt="Christy Lynn Cleo blouse, wildflower black" loading="lazy"><img class="alt" src="img/p-christy-blouse.jpg" alt="" loading="lazy"></span><span class="v cap muted">Christy Lynn</span><span class="n">Cleo blouse, wildflower black</span><span class="p mono muted">$425</span><span class="av off">Online only</span></a>
-    </div>
+    <div class="goods"><a class="good" href="/products/pharaoh-cecelia-dress-in-gossamer-chocolate/" data-stores="" data-cat="clothing" data-brand="pharaoh" data-price="425"><span class="ph2"><img src="/img/p/pharaoh-cecelia-dress-in-gossamer-chocolate-0.jpg" alt="Pharaoh Cecelia Dress in Gossamer - Chocolate" loading="lazy"><img class="alt" src="/img/p/pharaoh-cecelia-dress-in-gossamer-chocolate-2.jpg" alt="" loading="lazy"></span><span class="v cap muted">Pharaoh</span><span class="n">Cecelia Dress in Gossamer - Chocolate</span><span class="p mono muted">$425</span><span class="av off">Online only</span></a><a class="good" href="/products/donni-the-sueded-jersey-simple-pant/" data-stores="signal harbor yount" data-cat="clothing" data-brand="donni" data-price="154"><span class="ph2"><img src="/img/p/donni-the-sueded-jersey-simple-pant-0.jpg" alt="Donni The Sueded Jersey Simple Pant" loading="lazy"><img class="alt" src="/img/p/donni-the-sueded-jersey-simple-pant-1.jpg" alt="" loading="lazy"></span><span class="v cap muted">Donni</span><span class="n">The Sueded Jersey Simple Pant</span><span class="p mono muted">$154</span><span class="av">In stock at Signal +2</span></a><a class="good" href="/products/apiece-apart-classic-merida-pant/" data-stores="harbor yount" data-cat="clothing" data-brand="apiece-apart" data-price="325"><span class="ph2"><img src="/img/p/apiece-apart-classic-merida-pant-0.jpg" alt="Apiece Apart Classic Merida Pant" loading="lazy"><img class="alt" src="/img/p/apiece-apart-classic-merida-pant-3.jpg" alt="" loading="lazy"></span><span class="v cap muted">Apiece Apart</span><span class="n">Classic Merida Pant</span><span class="p mono muted">$325</span><span class="av">In stock at Harbor House +1</span></a><a class="good" href="/products/bembien-sahara-scarf/" data-stores="signal harbor sea" data-cat="bags" data-brand="bembien" data-price="115"><span class="ph2"><img src="/img/p/bembien-sahara-scarf-1.jpg" alt="Bembien Sahara Scarf" loading="lazy"><img class="alt" src="/img/p/bembien-sahara-scarf-3.jpg" alt="" loading="lazy"></span><span class="v cap muted">Bembien</span><span class="n">Sahara Scarf</span><span class="p mono muted">$115</span><span class="av">In stock at Signal +2</span></a><a class="good" href="/products/freda-salvador-sera-fisherman-sandal/" data-stores="signal" data-cat="shoes" data-brand="freda-salvador" data-price="333"><span class="ph2"><img src="/img/p/freda-salvador-sera-fisherman-sandal-3.jpg" alt="Freda Salvador Sera Fisherman Sandal" loading="lazy"><img class="alt" src="/img/p/freda-salvador-sera-fisherman-sandal-0.jpg" alt="" loading="lazy"></span><span class="v cap muted">Freda Salvador</span><span class="n">Sera Fisherman Sandal</span><span class="p mono muted">$333</span><span class="av">In stock at Signal</span></a><a class="good" href="/products/the-gold-album-the-petite-cocktail-ring/" data-stores="signal" data-cat="jewelry" data-brand="the-gold-album" data-price="5120"><span class="ph2"><img src="/img/p/the-gold-album-the-petite-cocktail-ring-2.jpg" alt="The Gold Album The Petite Cocktail Ring" loading="lazy"><img class="alt" src="/img/p/the-gold-album-the-petite-cocktail-ring-1.jpg" alt="" loading="lazy"></span><span class="v cap muted">The Gold Album</span><span class="n">The Petite Cocktail Ring</span><span class="p mono muted">$5,120</span><span class="av">In stock at Signal</span></a><a class="good" href="/products/zofia-day-shell-diamond-sprinkle-dome-hoops/" data-stores="signal harbor yount" data-cat="jewelry" data-brand="zofia-day" data-price="9500"><span class="ph2"><img src="/img/p/zofia-day-shell-diamond-sprinkle-dome-hoops-1.jpg" alt="Zofia Day Shell Diamond Sprinkle Dome Hoops" loading="lazy"><img class="alt" src="/img/p/zofia-day-shell-diamond-sprinkle-dome-hoops-0.jpg" alt="" loading="lazy"></span><span class="v cap muted">Zofia Day</span><span class="n">Shell Diamond Sprinkle Dome Hoops</span><span class="p mono muted">$9,500</span><span class="av">In stock at Signal +2</span></a><a class="good" href="/products/ana-ross-lekane-torque-collar-necklace/" data-stores="harbor yount sea" data-cat="jewelry" data-brand="ana-ross" data-price="900"><span class="ph2"><img src="/img/p/ana-ross-lekane-torque-collar-necklace-0.jpg" alt="Ana Ross Lekane Torque Collar Necklace" loading="lazy"><img class="alt" src="/img/p/ana-ross-lekane-torque-collar-necklace-2.jpg" alt="" loading="lazy"></span><span class="v cap muted">Ana Ross</span><span class="n">Lekane Torque Collar Necklace</span><span class="p mono muted">$900</span><span class="av">In stock at Harbor House +2</span></a></div>
     <div class="cats">
-      <a class="cat" href="#shop"><img src="img/cat-doen.jpg" alt="Dôen knit with a faux fur collar" loading="lazy"><span class="cap">Clothing</span></a>
-      <a class="cat" href="#shop"><img src="img/p-freda-boot-b.jpg" alt="Freda Salvador boot" loading="lazy"><span class="cap">Shoes</span></a>
-      <a class="cat" href="#shop"><img src="img/p-janessa-bag-b.jpg" alt="Janessa Leone shoulder bag" loading="lazy"><span class="cap">Bags</span></a>
-      <a class="cat" href="#shop"><img src="img/cat-jewelry.jpg" alt="Rings and chains on a striped tray" loading="lazy"><span class="cap">Jewelry</span></a>
-      <a class="cat" href="#shop"><img src="img/cat-halley-plates.jpg" alt="Isabel Halley painted plates" loading="lazy"><span class="cap">Home</span></a>
-      <a class="cat" href="#shop"><img src="img/cat-apothecary.jpg" alt="Flamingo Estate candle" loading="lazy"><span class="cap">Apothecary</span></a>
-      <a class="cat" href="#shop"><img src="img/event-vintage.jpg" alt="Vintage ceramics and glassware" loading="lazy"><span class="cap">Vintage</span></a>
-      <a class="cat" href="#shop"><img src="img/event-art.jpg" alt="Art hung salon style above a sofa" loading="lazy"><span class="cap">Art</span></a>
+      <a class="cat" href="/shop/?c=clothing"><img src="/img/cat-doen.jpg" alt="Dôen knit with a faux fur collar" loading="lazy"><span class="cap">Clothing</span></a>
+      <a class="cat" href="/shop/?c=shoes"><img src="/img/p-freda-boot-b.jpg" alt="Freda Salvador boot" loading="lazy"><span class="cap">Shoes</span></a>
+      <a class="cat" href="/shop/?c=bags"><img src="/img/p-janessa-bag-b.jpg" alt="Janessa Leone shoulder bag" loading="lazy"><span class="cap">Bags</span></a>
+      <a class="cat" href="/shop/?c=jewelry"><img src="/img/cat-jewelry.jpg" alt="Rings and chains on a striped tray" loading="lazy"><span class="cap">Jewelry</span></a>
+      <a class="cat" href="/shop/?c=home"><img src="/img/cat-halley-plates.jpg" alt="Isabel Halley painted plates" loading="lazy"><span class="cap">Home</span></a>
+      <a class="cat" href="/shop/?c=apothecary"><img src="/img/cat-apothecary.jpg" alt="Flamingo Estate candle" loading="lazy"><span class="cap">Apothecary</span></a>
+      <a class="cat" href="/shop/?c=vintage"><img src="/img/event-vintage.jpg" alt="Vintage ceramics and glassware" loading="lazy"><span class="cap">Vintage</span></a>
+      <a class="cat" href="/shop/?c=art"><img src="/img/event-art.jpg" alt="Art hung salon style above a sofa" loading="lazy"><span class="cap">Art</span></a>
     </div>
   </section>
 
   <section id="places" class="wrap" aria-labelledby="places-h">
     <div class="sec-head"><h2 id="places-h" class="cap" style="margin:0">Stores</h2><span class="mono muted" id="clock">Los Angeles</span></div>
     <div class="places">
-      <a class="place" href="#shop" data-shop-store="signal" data-open="11-19,11-19,11-19,11-19,11-19,11-19,11-19">
-        <div class="img"><img src="img/place-signal.jpg" alt="White arched facade of the Signal building" loading="lazy"><span class="no mono">01</span></div>
+      <a class="place" href="/stores/signal/" data-open="11-19,11-19,11-19,11-19,11-19,11-19,11-19">
+        <div class="img"><img src="/img/place-signal.jpg" alt="White arched facade of the Signal building" loading="lazy"><span class="no mono">01</span></div>
         <h3>Signal</h3>
         <div class="row"><span class="seo">Boutique in the Arts District, Los Angeles</span></div>
         <div class="row"><span class="muted">821 Traction Ave, Arts District</span></div>
         <div class="row"><span class="status"></span><span class="cap shopthis">Shop this store</span></div>
         <div class="row" hidden><span></span><span class="mono muted">Since 2013</span></div>
       </a>
-      <a class="place" href="#shop" data-shop-store="harbor" data-open="10-18,10-18,10-18,10-18,10-19,10-19,10-19">
-        <div class="img"><img src="img/place-harbor.jpg" alt="Inside Harbor House" loading="lazy"><span class="no mono">02</span></div>
+      <a class="place" href="/stores/harbor-house/" data-open="10-18,10-18,10-18,10-18,10-19,10-19,10-19">
+        <div class="img"><img src="/img/place-harbor.jpg" alt="Inside Harbor House" loading="lazy"><span class="no mono">02</span></div>
         <h3>Harbor House</h3>
         <div class="row"><span class="seo">Boutique at Lido Marina Village, Newport Beach</span></div>
         <div class="row"><span class="muted">3408 Via Oporto, Newport Beach</span></div>
         <div class="row"><span class="status"></span><span class="cap shopthis">Shop this store</span></div>
         <div class="row" hidden><span></span><span class="mono muted">Since 2016</span></div>
       </a>
-      <a class="place" href="#shop" data-shop-store="yount" data-open="10-17,11-17,11-17,11-17,11-17,10-18,10-18">
-        <div class="img"><img src="img/place-yountville.jpg" alt="The white Yountville shop with a black awning" loading="lazy"><span class="no mono">03</span></div>
+      <a class="place" href="/stores/yountville/" data-open="10-17,11-17,11-17,11-17,11-17,10-18,10-18">
+        <div class="img"><img src="/img/place-yountville.jpg" alt="The white Yountville shop with a black awning" loading="lazy"><span class="no mono">03</span></div>
         <h3>Yountville</h3>
         <div class="row"><span class="seo">Boutique in Yountville, Napa Valley</span></div>
         <div class="row"><span class="muted">6540 Washington St, Napa Valley</span></div>
         <div class="row"><span class="status"></span><span class="cap shopthis">Shop this store</span></div>
         <div class="row" hidden><span></span><span class="mono muted">707.912.7636</span></div>
       </a>
-      <a class="place" href="#shop" data-shop-store="sea" data-open="10-17,10-17,10-17,10-17,10-17,10-17,10-17">
-        <div class="img"><img src="img/place-seashop.jpg" alt="Watercolor of the Pink House in Carmel" loading="lazy"><span class="no mono">04</span></div>
+      <a class="place" href="/stores/sea-shop/" data-open="10-17,10-17,10-17,10-17,10-17,10-17,10-17">
+        <div class="img"><img src="/img/place-seashop.jpg" alt="Watercolor of the Pink House in Carmel" loading="lazy"><span class="no mono">04</span></div>
         <h3>Sea Shop</h3>
         <div class="row"><span class="seo">Boutique in Carmel by the Sea</span></div>
         <div class="row"><span class="muted">Ocean Ave at Monte Verde, Carmel</span></div>
@@ -429,10 +420,10 @@ section,.story{scroll-margin-top:80px}
     <div class="wrap">
       <div class="sec-head"><h2 id="on-h" class="cap" style="margin:0">What's on</h2><span class="cap muted">This season</span></div>
       <ul class="list">
-        <li><a href="#whats-on"><span class="mono muted">01</span><span class="t">Dôen in residence</span><span class="w cap">Harbor House</span><span class="d mono muted">Ongoing</span></a><img class="peek" src="img/event-doen.jpg" alt=""></li>
-        <li><a href="#whats-on"><span class="mono muted">02</span><span class="t">The Pink House opens</span><span class="w cap">Sea Shop, Carmel</span><span class="d mono muted">Open daily</span></a><img class="peek" src="img/place-seashop.jpg" alt=""></li>
-        <li><a href="#whats-on"><span class="mono muted">03</span><span class="t">AW/Art, the next show<span class="sample">Sample</span></span><span class="w cap">Signal</span><span class="d mono muted">Dates to come</span></a><img class="peek" src="img/event-art.jpg" alt=""></li>
-        <li><a href="#whats-on"><span class="mono muted">04</span><span class="t">Vintage Lot No. 01<span class="sample">Sample</span></span><span class="w cap">Yountville</span><span class="d mono muted">Harvest weekend</span></a><img class="peek" src="img/event-vintage.jpg" alt=""></li>
+        <li><a href="#whats-on"><span class="mono muted">01</span><span class="t">Dôen in residence</span><span class="w cap">Harbor House</span><span class="d mono muted">Ongoing</span></a><img class="peek" src="/img/event-doen.jpg" alt=""></li>
+        <li><a href="#whats-on"><span class="mono muted">02</span><span class="t">The Pink House opens</span><span class="w cap">Sea Shop, Carmel</span><span class="d mono muted">Open daily</span></a><img class="peek" src="/img/place-seashop.jpg" alt=""></li>
+        <li><a href="#whats-on"><span class="mono muted">03</span><span class="t">AW/Art, the next show<span class="sample">Sample</span></span><span class="w cap">Signal</span><span class="d mono muted">Dates to come</span></a><img class="peek" src="/img/event-art.jpg" alt=""></li>
+        <li><a href="#whats-on"><span class="mono muted">04</span><span class="t">Vintage Lot No. 01<span class="sample">Sample</span></span><span class="w cap">Yountville</span><span class="d mono muted">Harvest weekend</span></a><img class="peek" src="/img/event-vintage.jpg" alt=""></li>
       </ul>
     </div>
   </section>
@@ -441,10 +432,10 @@ section,.story{scroll-margin-top:80px}
     <div>
       <div class="tag cap muted"><span>Since 2013</span><span>Arts District · Newport Beach · Yountville · Carmel</span></div>
       <p class="lede">Alchemy Works opened in November 2013 on Third Street in the Arts District, a few doors from Apolis. A 1959 Fiat Abarth sat on the shop floor, always for sale. The idea was to stock what Raan and Lindsay Parton couldn't find in Los Angeles, and give the lesser known makers a wall. Thirteen years later there are four shops, from Lido Marina Village to a pink cottage on Ocean Avenue.</p>
-      <p style="margin-top:32px"><a class="cap link" href="#story">Read the story</a></p>
+      <p style="margin-top:32px"><a class="cap link" href="/about/">Read the story</a></p>
     </div>
     <figure class="side" style="margin:0">
-      <img src="img/fvf-storefront.jpg" alt="The first shop seen through its glass door, the Fiat and shelving inside" style="object-position:35% 50%">
+      <img src="/img/fvf-storefront.jpg" alt="The first shop seen through its glass door, the Fiat and shelving inside" style="object-position:35% 50%">
       <figcaption class="cap muted">The first shop, 826 E. 3rd St, 2013</figcaption>
     </figure>
   </div>
@@ -452,8 +443,8 @@ section,.story{scroll-margin-top:80px}
   <section id="collab" class="wrap" aria-labelledby="collab-h" style="padding-top:clamp(56px,8vw,110px)">
     <div class="sec-head"><h2 id="collab-h" class="cap" style="margin:0">Collaborations</h2><a class="cap link" href="#collab">View all</a></div>
     <div class="collab">
-      <img class="a" src="img/apolis-poolside.jpg" alt="Two women by a pool with a striped market bag" loading="lazy">
-      <img class="b" src="img/int-arch.jpg" alt="An arched window in a plastered room with a low chair" loading="lazy">
+      <img class="a" src="/img/apolis-poolside.jpg" alt="Two women by a pool with a striped market bag" loading="lazy">
+      <img class="b" src="/img/int-arch.jpg" alt="An arched window in a plastered room with a low chair" loading="lazy">
       <div class="text">
         <div><h2 class="big">Alchemy Works x Apolis</h2></div>
         <div style="display:grid;gap:22px;align-content:start">
@@ -465,13 +456,13 @@ section,.story{scroll-margin-top:80px}
   </section>
 
   <section id="home" class="wrap" aria-labelledby="home-h">
-    <div class="sec-head"><h2 id="home-h" class="cap" style="margin:0">At home</h2><a class="cap link" href="#shop">Shop home</a></div>
+    <div class="sec-head"><h2 id="home-h" class="cap" style="margin:0">At home</h2><a class="cap link" href="/shop/?c=home">Shop home</a></div>
     <div class="rooms">
-      <img class="r1" src="img/int-fireplace.jpg" alt="A white plaster room with a stone fireplace and a horse painting" loading="lazy">
-      <img class="r2" src="img/int-breakfast.jpg" alt="Breakfast on a marble table" loading="lazy">
-      <img class="r3" src="img/int-desert-balcony.jpg" alt="A balcony door open to a desert butte at dusk" loading="lazy">
-      <img class="r4" src="img/int-desk-hat.jpg" alt="A wooden desk, a straw hat and a plant against plaster" loading="lazy">
-      <img class="r5" src="img/int-sunroom.jpg" alt="Velvet chairs in a sunroom" loading="lazy">
+      <img class="r1" src="/img/int-fireplace.jpg" alt="A white plaster room with a stone fireplace and a horse painting" loading="lazy">
+      <img class="r2" src="/img/int-breakfast.jpg" alt="Breakfast on a marble table" loading="lazy">
+      <img class="r3" src="/img/int-desert-balcony.jpg" alt="A balcony door open to a desert butte at dusk" loading="lazy">
+      <img class="r4" src="/img/int-desk-hat.jpg" alt="A wooden desk, a straw hat and a plant against plaster" loading="lazy">
+      <img class="r5" src="/img/int-sunroom.jpg" alt="Velvet chairs in a sunroom" loading="lazy">
       <div class="txt">
         <h2 class="big">Rooms that come together slowly.</h2>
         <p class="lede" style="font-size:clamp(20px,1.8vw,26px)">Half of every shop is home. Tina Frey resin, Isabel Halley ceramics, Sandoval and Earl Home, Flamingo Estate on the counter, and vintage found on the road. Chosen the way a house fills up over years, one piece at a time.</p>
@@ -480,24 +471,24 @@ section,.story{scroll-margin-top:80px}
   </section>
 
   <section id="brands" class="wrap" aria-labelledby="brands-h">
-    <div class="sec-head"><h2 id="brands-h" class="cap" style="margin:0">Brands A to Z</h2><span class="mono muted">30 brands</span></div>
+    <div class="sec-head"><h2 id="brands-h" class="cap" style="margin:0">Brands</h2><a class="cap link" href="/brands/">All brands A to Z</a></div>
     <div class="bx">
-      <ul class="bx-list"><li><span class="mono muted bl">A</span><a href="#brands">Apiece Apart</a></li><li><span class="bl"></span><a href="#brands" data-img="img/apolis-artsdistrict-bag.jpg">Apolis</a></li><li><span class="mono muted bl">B</span><a href="#brands">Bembien</a></li><li><span class="bl"></span><a href="#brands">Bodha</a></li><li><span class="bl"></span><a href="#brands">Boudov</a></li><li><span class="mono muted bl">C</span><a href="#brands">Cai Dreaming</a></li><li><span class="bl"></span><a href="#brands" data-img="img/p-christy-blouse-b.jpg">Christy Lynn</a></li><li><span class="bl"></span><a href="#brands" data-img="img/p-clarev-bag-b.jpg">Clare V.</a></li><li><span class="bl"></span><a href="#brands">Cleobella</a></li><li><span class="mono muted bl">D</span><a href="#brands" data-img="img/cat-doen.jpg">Dôen</a></li><li><span class="mono muted bl">E</span><a href="#brands">Earl Home</a></li><li><span class="mono muted bl">F</span><a href="#brands">Flamingo Estate</a></li><li><span class="bl"></span><a href="#brands" data-img="img/p-freda-boot-b.jpg">Freda Salvador</a></li><li><span class="mono muted bl">G</span><a href="#brands">Gabriela Artigas</a></li><li><span class="mono muted bl">I</span><a href="#brands" data-img="img/cat-halley-plates.jpg">Isabel Halley</a></li><li><span class="mono muted bl">J</span><a href="#brands" data-img="img/p-janessa-bag-b.jpg">Janessa Leone</a></li><li><span class="mono muted bl">K</span><a href="#brands">Karen Lazar</a></li><li><span class="mono muted bl">L</span><a href="#brands" data-img="img/event-vintage.jpg">La Suite</a></li><li><span class="bl"></span><a href="#brands" data-img="img/p-lizzie-collar.jpg">Lizzie Fortunato</a></li><li><span class="mono muted bl">M</span><a href="#brands">Mikoh</a></li><li><span class="bl"></span><a href="#brands">Mille</a></li><li><span class="bl"></span><a href="#brands" data-img="img/event-vintage.jpg">Mt Modern</a></li><li><span class="mono muted bl">N</span><a href="#brands">Not Monday</a></li><li><span class="mono muted bl">R</span><a href="#brands">Renna</a></li><li><span class="bl"></span><a href="#brands">Riddle Oil</a></li><li><span class="bl"></span><a href="#brands">ROAM</a></li><li><span class="mono muted bl">S</span><a href="#brands">Sandoval</a></li><li><span class="bl"></span><a href="#brands">Sarah Hendler</a></li><li><span class="mono muted bl">T</span><a href="#brands">Tina Frey</a></li><li><span class="mono muted bl">Z</span><a href="#brands" data-img="img/p-zofia-ring-b.jpg">Zofia Day</a></li></ul>
-      <figure class="bx-prev"><img id="bx-img" src="img/cat-doen.jpg" alt="" loading="lazy"><figcaption class="cap muted" id="bx-cap">Dôen</figcaption></figure>
+      <ul class="bx-list"><li><span class="mono muted bl">01</span><a href="/brands/pharaoh/" data-img="/img/p/pharaoh-cecelia-dress-in-gossamer-chocolate-0.jpg">Pharaoh</a></li><li><span class="mono muted bl">02</span><a href="/brands/donni/" data-img="/img/p/donni-the-sueded-jersey-simple-pant-0.jpg">Donni</a></li><li><span class="mono muted bl">03</span><a href="/brands/apiece-apart/" data-img="/img/p/apiece-apart-classic-merida-pant-0.jpg">Apiece Apart</a></li><li><span class="mono muted bl">04</span><a href="/brands/bembien/" data-img="/img/p/bembien-sahara-scarf-1.jpg">Bembien</a></li><li><span class="mono muted bl">05</span><a href="/brands/freda-salvador/" data-img="/img/p/freda-salvador-sera-fisherman-sandal-3.jpg">Freda Salvador</a></li><li><span class="mono muted bl">06</span><a href="/brands/the-gold-album/" data-img="/img/p/the-gold-album-the-petite-cocktail-ring-2.jpg">The Gold Album</a></li><li><span class="mono muted bl">07</span><a href="/brands/zofia-day/" data-img="/img/p/zofia-day-shell-diamond-sprinkle-dome-hoops-1.jpg">Zofia Day</a></li><li><span class="mono muted bl">08</span><a href="/brands/ana-ross/" data-img="/img/p/ana-ross-lekane-torque-collar-necklace-0.jpg">Ana Ross</a></li></ul>
+      <figure class="bx-prev"><img id="bx-img" src="/img/p/pharaoh-cecelia-dress-in-gossamer-chocolate-0.jpg" alt="" loading="lazy"><figcaption class="cap muted" id="bx-cap">Pharaoh</figcaption></figure>
     </div>
   </section>
 
   <section id="journal" class="wrap" aria-labelledby="journal-h">
-    <div class="sec-head"><h2 id="journal-h" class="cap" style="margin:0">Journal</h2><a class="cap link" href="#journal">All entries</a></div>
+    <div class="sec-head"><h2 id="journal-h" class="cap" style="margin:0">Journal</h2><a class="cap link" href="/journal/">All entries</a></div>
     <div class="journal">
-      <article class="entry"><a href="#journal" class="entry-link"><img src="img/fvf-cypress-road.jpg" alt="A coast road through tall trees" loading="lazy"><div class="k cap muted"><span>Guide</span><span class="mono">01</span></div><h3>A day in Carmel, from the Pink House to the point<span class="sample" style="border-color:var(--muted);color:var(--muted)">Sample</span></h3></a><div class="intext"><div class="thumbs"><a href="#shop" title="Isabel Halley, The Bowl"><img src="img/p-halley-bowl.jpg" alt="Isabel Halley The Bowl" loading="lazy"></a><a href="#shop" title="Zofia Day, Dolly ring"><img src="img/p-zofia-ring.jpg" alt="Zofia Day Dolly ring" loading="lazy"></a><a href="#shop" title="Christy Lynn, Cleo blouse, wildflower black"><img src="img/p-christy-blouse.jpg" alt="Christy Lynn Cleo blouse, wildflower black" loading="lazy"></a></div><a class="cap link" href="#shop">Shop 3 pieces</a></div></article>
-      <article class="entry"><a href="#journal" class="entry-link"><img src="img/jc-maker-portrait.jpg" alt="A ceramicist among shelves of her work in a wooden studio" loading="lazy"><div class="k cap muted"><span>Interview</span><span class="mono">02</span></div><h3>Who makes what's on the shelves<span class="sample" style="border-color:var(--muted);color:var(--muted)">Sample</span></h3></a><div class="intext"><div class="thumbs"><a href="#shop" title="Isabel Halley, The Bowl"><img src="img/p-halley-bowl.jpg" alt="Isabel Halley The Bowl" loading="lazy"></a><a href="#shop" title="Clare V., Pot de Miel, bamboo handle"><img src="img/p-clarev-bag.jpg" alt="Clare V. Pot de Miel, bamboo handle" loading="lazy"></a><a href="#shop" title="Lizzie Fortunato, Woven collar, pastel pearl"><img src="img/p-lizzie-collar.jpg" alt="Lizzie Fortunato Woven collar, pastel pearl" loading="lazy"></a></div><a class="cap link" href="#shop">Shop 3 pieces</a></div></article>
-      <article class="entry"><a href="#journal" class="entry-link"><img src="img/napa-harvest-vines.jpg" alt="Hands holding fresh-picked green grapes at harvest" loading="lazy"><div class="k cap muted"><span>Guide</span><span class="mono">03</span></div><h3>Harvest weekend in Yountville<span class="sample" style="border-color:var(--muted);color:var(--muted)">Sample</span></h3></a><div class="intext"><div class="thumbs"><a href="#shop" title="Freda Salvador, Brooke rain boot"><img src="img/p-freda-boot.jpg" alt="Freda Salvador Brooke rain boot" loading="lazy"></a><a href="#shop" title="Janessa Leone, Leoné shoulder bag"><img src="img/p-janessa-bag.jpg" alt="Janessa Leone Leoné shoulder bag" loading="lazy"></a><a href="#shop" title="Dôen, Odessa dress, red snapdragon"><img src="img/p-doen-dress.jpg" alt="Dôen Odessa dress, red snapdragon" loading="lazy"></a></div><a class="cap link" href="#shop">Shop 3 pieces</a></div></article>
+      <article class="entry"><a href="/journal/a-day-in-carmel/" class="entry-link"><img src="/img/fvf-cypress-road.jpg" alt="A coast road through tall trees" loading="lazy"><div class="k cap muted"><span>Guide</span><span class="mono">01</span></div><h3>A day in Carmel, from the Pink House to the point<span class="sample" style="border-color:var(--muted);color:var(--muted)">Sample</span></h3></a><div class="intext"><div class="thumbs"><a href="#shop" title="Isabel Halley, The Bowl"><img src="/img/p-halley-bowl.jpg" alt="Isabel Halley The Bowl" loading="lazy"></a><a href="#shop" title="Zofia Day, Dolly ring"><img src="/img/p-zofia-ring.jpg" alt="Zofia Day Dolly ring" loading="lazy"></a><a href="#shop" title="Christy Lynn, Cleo blouse, wildflower black"><img src="/img/p-christy-blouse.jpg" alt="Christy Lynn Cleo blouse, wildflower black" loading="lazy"></a></div><a class="cap link" href="#shop">Shop 3 pieces</a></div></article>
+      <article class="entry"><a href="/journal/who-makes-whats-on-the-shelves/" class="entry-link"><img src="/img/jc-maker-portrait.jpg" alt="A ceramicist among shelves of her work in a wooden studio" loading="lazy"><div class="k cap muted"><span>Interview</span><span class="mono">02</span></div><h3>Who makes what's on the shelves<span class="sample" style="border-color:var(--muted);color:var(--muted)">Sample</span></h3></a><div class="intext"><div class="thumbs"><a href="#shop" title="Isabel Halley, The Bowl"><img src="/img/p-halley-bowl.jpg" alt="Isabel Halley The Bowl" loading="lazy"></a><a href="#shop" title="Clare V., Pot de Miel, bamboo handle"><img src="/img/p-clarev-bag.jpg" alt="Clare V. Pot de Miel, bamboo handle" loading="lazy"></a><a href="#shop" title="Lizzie Fortunato, Woven collar, pastel pearl"><img src="/img/p-lizzie-collar.jpg" alt="Lizzie Fortunato Woven collar, pastel pearl" loading="lazy"></a></div><a class="cap link" href="#shop">Shop 3 pieces</a></div></article>
+      <article class="entry"><a href="/journal/harvest-weekend-in-yountville/" class="entry-link"><img src="/img/napa-harvest-vines.jpg" alt="Hands holding fresh-picked green grapes at harvest" loading="lazy"><div class="k cap muted"><span>Guide</span><span class="mono">03</span></div><h3>Harvest weekend in Yountville<span class="sample" style="border-color:var(--muted);color:var(--muted)">Sample</span></h3></a><div class="intext"><div class="thumbs"><a href="#shop" title="Freda Salvador, Brooke rain boot"><img src="/img/p-freda-boot.jpg" alt="Freda Salvador Brooke rain boot" loading="lazy"></a><a href="#shop" title="Janessa Leone, Leoné shoulder bag"><img src="/img/p-janessa-bag.jpg" alt="Janessa Leone Leoné shoulder bag" loading="lazy"></a><a href="#shop" title="Dôen, Odessa dress, red snapdragon"><img src="/img/p-doen-dress.jpg" alt="Dôen Odessa dress, red snapdragon" loading="lazy"></a></div><a class="cap link" href="#shop">Shop 3 pieces</a></div></article>
     </div>
   </section>
 
   <div class="hero" style="margin-top:0">
-    <img src="img/fvf-wave.jpg" alt="A clean wave breaking along a California beach" loading="lazy" style="height:min(70vh,700px)">
+    <img src="/img/fvf-wave.jpg" alt="A clean wave breaking along a California beach" loading="lazy" style="height:min(70vh,700px)">
     <div class="wrap meta cap"><span>Coastal California, collected</span><span>Since 2013</span></div>
   </div>
 </main>
