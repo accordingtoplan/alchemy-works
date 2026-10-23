@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<style>html.aw-lock body>*{display:none!important}html.aw-lock body>#aw-gate{display:flex!important}
+#aw-gate{position:fixed;inset:0;align-items:center;justify-content:center;background:#fff;color:#0E0E0D;font:15px "Hanken Grotesk",Arial,sans-serif;padding:24px}
+#aw-gate form{display:grid;gap:14px;width:min(360px,100%);text-align:center}
+#aw-gate .w{font:20px Marcellus,Georgia,serif;letter-spacing:.16em}
+#aw-gate input{font:16px "Hanken Grotesk",Arial,sans-serif;padding:12px 14px;border:1px solid #0E0E0D;background:#fff;color:#0E0E0D;text-align:center}
+#aw-gate button{font:500 12px "Hanken Grotesk",Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;padding:14px;border:0;background:#0E0E0D;color:#fff;cursor:pointer}
+#aw-gate .e{min-height:1.2em;color:#9b2c2c;font-size:13px}</style>
+<script>(function(){var H="a330e89eeb735d701bfbee448c748af9b2adf08578d9aa3ebc27b1136e59e056";var ok=false;try{ok=localStorage.getItem("aw-pass")===H}catch(e){}if(ok)return;
+document.documentElement.classList.add("aw-lock");
+addEventListener("DOMContentLoaded",function(){var d=document.createElement("div");d.id="aw-gate";
+d.innerHTML='<form><span class="w">ALCHEMY WORKS</span><span>Preview. Enter the password.</span><label for="aw-pw" style="position:absolute;left:-9999px">Password</label><input id="aw-pw" type="password" autocomplete="current-password" autofocus><button type="submit">Enter</button><span class="e" role="status"></span></form>';
+document.body.appendChild(d);d.querySelector("form").addEventListener("submit",function(ev){ev.preventDefault();var v=d.querySelector("input").value.trim().toLowerCase();
+crypto.subtle.digest("SHA-256",new TextEncoder().encode(v)).then(function(b){var h=Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,"0")}).join("");
+if(h===H){try{localStorage.setItem("aw-pass",H)}catch(e){}document.documentElement.classList.remove("aw-lock");d.remove()}else{d.querySelector(".e").textContent="That password is not right."}})})})})();</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Your bag · Alchemy Works</title>
+<meta name="description" content="Your bag at Alchemy Works.">
+<link rel="canonical" href="https://new.alchemyworks.us/cart/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:site_name" content="Alchemy Works">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Your bag · Alchemy Works">
+<meta property="og:description" content="Your bag at Alchemy Works.">
+<meta property="og:url" content="https://new.alchemyworks.us/cart/">
+<meta property="og:image" content="https://new.alchemyworks.us/img/hero-surfboards.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Newsreader:opsz,wght@6..72,300;6..72,400&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <nav class="cap" aria-label="Main" id="main-nav"><a href="/shop/">New in</a><a href="/shop/?c=clothing">Clothing</a><a href="/shop/?c=home">Home</a><a href="/shop/?c=jewelry">Jewelry</a><a href="/shop/?c=vintage">Vintage</a><a href="/brands/">Brands</a><a class="nav-about" href="/about/">About</a></nav>
+    <a class="wordmark" href="/" aria-label="Alchemy Works home"><span class="aw-mono" aria-hidden="true"></span>ALCHEMY WORKS</a>
+    <div class="right cap"><button class="menu-btn cap" id="menu-btn" aria-expanded="false" aria-controls="main-nav">Menu</button><a class="hide-s" href="/stores/">Stores</a><a class="hide-s" href="/journal/">Journal</a><a class="hide-s" href="/about/">About</a><a class="search-link" href="/search/" aria-label="Search" title="Search"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></a><a class="bag-link" href="/cart/" aria-label="Bag, 0 items" title="Bag"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M3.5 10h17v10.5h-17z"/><path d="M8.5 20.5V7.5a3.5 3.5 0 0 1 7 0v13"/></svg><span class="bag-n">0</span></a></div>
+  </div>
+</header>
+<main id="top">
+<div class="wrap" id="cart-page">
+<header class="page-head" style="position:static;border:0;background:none"><h1>Your bag</h1></header>
+<div class="cart-empty" hidden><p class="empty">Your bag is empty. <a class="link" href="/shop/">Shop new in</a></p></div>
+<div class="cart cart-full">
+  <ul class="cl"></ul>
+  <div class="cart-box">
+    <div class="ful" role="radiogroup" aria-label="Delivery">
+      <span class="cap muted">Delivery</span>
+      <label><input type="radio" name="ful" id="ful-ship" value="ship" checked> Ship to me. Free over $100.</label>
+      <label><input type="radio" name="ful" id="ful-pick" value="pick"> Pick up in store, ready in two hours</label>
+      <select class="cp-store" id="pick-store" aria-label="Store for pick up" hidden><option value="signal">Signal, Arts District, Los Angeles</option><option value="harbor">Harbor House, Lido Marina Village, Newport Beach</option><option value="yount">Yountville, Napa Valley</option><option value="sea">Sea Shop, Carmel by the Sea</option></select>
+    </div>
+    <div class="ln"><span>Subtotal</span><span class="mono cp-sub"></span></div>
+    <div class="ln"><span>Shipping</span><span class="muted cp-ship"></span></div>
+    <div class="ln" style="border-top:1px solid var(--rule);padding-top:12px"><span class="cap">Total</span><span class="mono cp-tot"></span></div>
+    <button class="btn-black" id="checkout" type="button">Check out</button>
+    <p class="co-msg" id="co-msg" role="status" hidden>Online checkout opens with the new site. Until then, the store can hold these pieces for you: <a class="link" href="/contact/">get in touch</a> and they will be set aside.</p>
+  </div>
+</div>
+</div>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot"><div><a class="cap" href="/stores/signal/">01 Signal</a><p>821 Traction Ave<br>Los Angeles, CA 90013<br><a href="mailto:store@alchemyworks.us">store@alchemyworks.us</a><br><a href="https://www.instagram.com/signalshops/">@signalshops</a></p></div><div><a class="cap" href="/stores/harbor-house/">02 Harbor House</a><p>3408 Via Oporto<br>Newport Beach, CA 92663<br>949.438.1183<br><a href="mailto:store@alchemyworks.us">store@alchemyworks.us</a><br><a href="https://www.instagram.com/aw_harborhouse/">@aw_harborhouse</a></p></div><div><a class="cap" href="/stores/yountville/">03 Yountville</a><p>6540 Washington St<br>Yountville, CA 94599<br>707.912.7636<br><a href="mailto:napashop@alchemyworks.us">napashop@alchemyworks.us</a></p></div><div><a class="cap" href="/stores/sea-shop/">04 Sea Shop</a><p>Ocean Ave 2SE at Monte Verde<br>Carmel by the Sea, CA 93921<br>831.760.9950<br><a href="mailto:carmelshop@alchemyworks.us">carmelshop@alchemyworks.us</a><br><a href="https://www.instagram.com/awseashop/">@awseashop</a></p></div></div>
+    <div class="big-mark" aria-hidden="true"><span class="aw-mono" aria-hidden="true"></span>ALCHEMY WORKS</div>
+    <div class="foot-letter">
+      <form class="letter" id="letter-form" novalidate><label for="email" class="cap" style="position:absolute;left:-9999px">Email</label><input id="email" type="email" placeholder="Email for the monthly letter" autocomplete="email"><button type="submit">Sign up</button></form>
+      <span class="cap muted" id="ok" role="status"></span>
+    </div>
+    <div class="foot-bar cap muted">
+      <nav class="legal" aria-label="Policies"><a href="/policies/shipping/">Shipping</a><a href="/policies/returns/">Returns and refunds</a><a href="/policies/privacy/">Privacy policy</a><a href="/policies/terms/">Terms of service</a><a href="/faq/">Questions</a><a href="/contact/">Contact</a></nav>
+      <div class="social"><a href="https://www.instagram.com/alchemyworks/" aria-label="Instagram" title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a><a href="https://www.facebook.com/alchemyworksshop/" aria-label="Facebook" title="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a><a href="https://www.pinterest.com/alchemyworksla/" aria-label="Pinterest" title="Pinterest"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M11 8.5c3-1 5 .8 4.5 3.3-.4 2-2 3-3.4 2.4M11.6 10.5 9.5 20"/></svg></a><a href="mailto:store@alchemyworks.us" aria-label="Email" title="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 6 9 7 9-7"/></svg></a></div>
+      <a class="credit" href="https://frederikfrede.com">Site by</a>
+    </div>
+  </div>
+</footer>
+<div class="ticker cap" aria-label="News"><div class="track" id="track"></div></div>
+<script src="/assets/site.js"></script>
+</body>
+</html>
