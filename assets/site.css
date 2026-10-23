@@ -359,6 +359,28 @@ details.acc div{padding-bottom:18px;color:var(--muted);max-width:52ch}
 .shopmeta{display:flex;justify-content:space-between;gap:16px;align-items:baseline;padding-bottom:16px;border-bottom:1px solid var(--rule);margin-bottom:28px}
 .shopmeta select,.brand-sel{font:500 12px var(--ui);letter-spacing:.06em;text-transform:uppercase;background:transparent;color:var(--ink);border:0;cursor:pointer}
 [hidden]{display:none!important}
+/* store pages */
+.story-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:1100px;margin:0 auto 8px}.story-pair img{aspect-ratio:3/4;object-fit:cover;width:100%}
+.story-full{max-width:1100px;margin:0 auto 8px}.story-full img{width:100%}
+.store-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding-bottom:clamp(40px,5vw,72px)}
+.store-gallery figure{margin:0;display:grid;gap:6px}
+.store-gallery img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.store-gallery .wide{grid-column:span 2}.store-gallery .wide img{aspect-ratio:auto;height:100%;max-height:none}
+.store-gallery figure.wide{grid-template-rows:1fr auto}
+.store-lists{display:grid;grid-template-columns:2fr 1fr;gap:clamp(24px,4vw,72px);padding-bottom:clamp(48px,6vw,96px)}
+.store-lists ul{list-style:none;margin:12px 0 0;padding:0;columns:2;column-gap:32px}
+.store-lists div:last-child ul{columns:1}
+.store-lists li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--rule);break-inside:avoid}
+.store-lists a:hover{text-decoration:underline}
+.store-map{padding-bottom:clamp(48px,6vw,96px)}.store-map iframe{width:100%;height:clamp(280px,40vw,460px);border:0;filter:grayscale(1)}
+/* footer social, search */
+header .right a{white-space:nowrap}
+.search-link svg{display:none;vertical-align:-3px}
+@media (max-width:700px){.search-link span{display:none}.search-link svg{display:inline-block}}
+.social{display:flex;align-items:center;gap:22px}.social svg{width:21px;height:21px}.social a{display:inline-flex;color:inherit}.social a:hover{opacity:.6}
+.foot a{color:inherit}.foot p a:hover{text-decoration:underline}
+.search-box{display:grid;gap:10px;max-width:640px;margin:0 auto 24px;text-align:center}
+.search-box input{font:300 clamp(24px,3vw,40px) var(--display);border:0;border-bottom:1px solid var(--ink);background:transparent;color:var(--ink);padding:10px 0;text-align:center;outline:none;width:100%}
 .brand-sel{max-width:70vw;border-bottom:1px solid var(--rule)!important;padding:4px 0;margin-left:8px}
 .empty{padding:60px 0 120px;text-align:center;color:var(--muted)}
 /* brand, store, story pages */
@@ -389,6 +411,7 @@ details.acc div{padding-bottom:18px;color:var(--muted);max-width:52ch}
   .split{grid-template-columns:1fr}
   .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
   .photos4{grid-template-columns:1fr}
+  .store-gallery{grid-template-columns:1fr 1fr}.store-lists{grid-template-columns:1fr}.store-lists ul{columns:1}
   .photos4 .tall{grid-row:auto;aspect-ratio:3/2}
 }
 @media (max-width:700px){.shopmeta{flex-direction:column;align-items:flex-start}.chipset{flex-wrap:nowrap;overflow-x:auto;max-width:100%;scrollbar-width:none}.cards{grid-template-columns:1fr}}
