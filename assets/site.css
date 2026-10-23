@@ -380,7 +380,7 @@ header .right a{white-space:nowrap}
 .search-link{display:inline-flex}.search-link svg{vertical-align:-3px}
 @media (min-width:1181px){.nav-about{display:none}}
 @media (max-width:700px){header .right{gap:12px!important;letter-spacing:.04em}}
-.legal{display:flex;flex-wrap:wrap;gap:8px 22px;padding-bottom:20px}.legal a:hover{color:var(--ink)}
+.legal{display:flex;flex-wrap:wrap;gap:8px 22px;padding-bottom:20px}.legal a:hover{color:var(--ink)}.legal .credit{margin-left:auto}
 .policy{max-width:720px;margin:0 auto;padding-bottom:clamp(40px,5vw,72px);font-size:16px;line-height:1.65}
 .policy p{margin:0 0 1em}.policy a{text-decoration:underline}
 .social{display:flex;align-items:center;gap:22px}.social svg{width:21px;height:21px}.social a{display:inline-flex;color:inherit}.social a:hover{opacity:.6}
