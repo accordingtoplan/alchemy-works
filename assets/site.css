@@ -376,7 +376,10 @@ details.acc div{padding-bottom:18px;color:var(--muted);max-width:52ch}
 /* footer social, search */
 header .right a{white-space:nowrap}
 .search-link svg{display:none;vertical-align:-3px}
-@media (max-width:700px){.search-link span{display:none}.search-link svg{display:inline-block}}
+@media (max-width:700px){.search-link span{display:none}.search-link svg{display:inline-block}header .right{gap:12px!important;letter-spacing:.04em}}
+.legal{display:flex;flex-wrap:wrap;gap:8px 22px;padding-bottom:20px}.legal a:hover{color:var(--ink)}
+.policy{max-width:720px;margin:0 auto;padding-bottom:clamp(40px,5vw,72px);font-size:16px;line-height:1.65}
+.policy p{margin:0 0 1em}.policy a{text-decoration:underline}
 .social{display:flex;align-items:center;gap:22px}.social svg{width:21px;height:21px}.social a{display:inline-flex;color:inherit}.social a:hover{opacity:.6}
 .foot a{color:inherit}.foot p a:hover{text-decoration:underline}
 .search-box{display:grid;gap:10px;max-width:640px;margin:0 auto 24px;text-align:center}
