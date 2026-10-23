@@ -13,6 +13,6 @@ addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>80),{passi
 function fitMark(){const m=document.querySelector('.big-mark');if(!m)return;m.style.fontSize='100px';m.style.fontSize=Math.floor(100*m.clientWidth/m.scrollWidth*0.98)+'px'}
 fitMark();addEventListener('resize',fitMark);document.fonts&&document.fonts.ready.then(fitMark);
 const lf=document.getElementById('letter-form');if(lf)lf.addEventListener('submit',e=>{e.preventDefault();const ok=document.getElementById('ok');if(ok)ok.textContent='Sign-up opens with the new site.'});
-const bag=[...document.querySelectorAll('header a')].find(a=>/^Bag/.test(a.textContent));
-window.awAdd=function(){const n=+(bag.textContent.match(/\d+/)||[0])[0]+1;bag.textContent='Bag ('+n+')'};
+const bag=document.querySelector('header .bag-link');
+window.awAdd=function(){if(!bag)return;const c=bag.querySelector('.bag-n');const n=+c.textContent+1;c.textContent=n;bag.setAttribute('aria-label','Bag, '+n+(n===1?' item':' items'))};
 })();
